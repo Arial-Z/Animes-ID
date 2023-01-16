@@ -53,7 +53,7 @@ for anime in Manami["data"]:
         if anilist_id:
             anime_dicts[anidb_id]["anilist_id"] = anilist_id
 
-with open("pmm_edits.json", "r") as f:
+with open("edits.json", "r") as f:
     for anidb_id, ids in json.load(f).items():
         anidb_id = int(anidb_id)
         if anidb_id in anime_dicts:
@@ -61,5 +61,5 @@ with open("pmm_edits.json", "r") as f:
                 if attr in ids:
                     anime_dicts[anidb_id][attr] = ids[attr]
 
-with open("pmm_anime_ids.json", "w") as write:
+with open("list-animes-id.json", "w") as write:
     json.dump(anime_dicts, write, indent=2)
