@@ -19,15 +19,18 @@ for anime in AniDBIDs.xpath("//anime"):
         tvdb_season = str(anime.xpath("@defaulttvdbseason")[0])
         if str(tvdb_season) == "a":
             tvdb_season = 1
-        if tvdb_id.isdigit():
-            anime_dict["tvdb_season"] = int(tvdb_season)
-            if int(tvdb_season) != 0:
-                tvdb_epoffset = str(anime.xpath("@episodeoffset")[0])
-                if tvdb_epoffset.isdigit() :
-                    anime_dict["tvdb_epoffset"] = int(tvdb_epoffset)
-                else:
-                    tvdb_epoffset = 0
-                    anime_dict["tvdb_epoffset"] = int(tvdb_epoffset)
+        try:
+            if tvdb_season:
+                anime_dict["tvdb_season"] = int(tvdb_season)
+                if int(tvdb_season) != 0:
+                    tvdb_epoffset = str(anime.xpath("@episodeoffset")[0])
+                    if tvdb_epoffset.isdigit() :
+                        anime_dict["tvdb_epoffset"] = int(tvdb_epoffset)
+                    else:
+                        tvdb_epoffset = 0
+                        anime_dict["tvdb_epoffset"] = int(tvdb_epoffset)
+        except ValueError:
+            pass 
     imdb_id = str(anime.xpath("@imdbid")[0])
     if imdb_id.startswith("tt"):
         anime_dict["imdb_id"] = imdb_id
