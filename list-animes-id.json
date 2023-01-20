@@ -67264,6 +67264,9 @@
   },
   "17445": {},
   "17446": {
+    "tvdb_id": 421061,
+    "tvdb_season": 1,
+    "tvdb_epoffset": 0,
     "mal_id": 52031,
     "anilist_id": 150653
   },
@@ -67996,6 +67999,9 @@
     "anilist_id": 137642
   },
   "17670": {
+    "tvdb_id": 426080,
+    "tvdb_season": 1,
+    "tvdb_epoffset": 0,
     "mal_id": 53379,
     "anilist_id": 155730
   },
