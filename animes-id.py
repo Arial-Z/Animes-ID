@@ -18,7 +18,7 @@ for anime in AniDBIDs.xpath("//anime"):
         anime_dict["tvdb_id"] = int(tvdb_id)
         tvdb_season = str(anime.xpath("@defaulttvdbseason")[0])
         if str(tvdb_season) == "a":
-            tvdb_season = 1
+            tvdb_season = -1
         try:
             if tvdb_season:
                 anime_dict["tvdb_season"] = int(tvdb_season)
