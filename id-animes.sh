@@ -1,16 +1,12 @@
 #!/bin/bash
 
 SCRIPT_FOLDER=$(dirname $(readlink -f $0))
-wget -O $SCRIPT_FOLDER/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
-wget -O $SCRIPT_FOLDER/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
-if [  -f $SCRIPT_FOLDER/list-animes-id.tsv ]
+if [ ! -d $SCRIPT_FOLDER/tmp ]										#check if exist and create folder for json data
 then
-	rm $SCRIPT_FOLDER/list-animes-id.tsv
-fi
-if [  -f $SCRIPT_FOLDER/list-movies-id.tsv ]
-then
-	rm $SCRIPT_FOLDER/list-movies-id.tsv
+	mkdir $SCRIPT_FOLDER/tmp
+else
+     rm $SCRIPT_FOLDER/tmp/*
 fi
 
 read_dom () {
@@ -35,27 +31,30 @@ parse_dom () {
 			then
 				episodeoffset=0
 			fi
-			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/anime-offline-database.tsv | cut -d : -f 1)
+			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDERtmp//anime-offline-database.tsv | cut -d : -f 1)
 			if [[ -n "$line" ]]
 			then
-				malid=$(awk -v line=$line -F"\t" 'NR==line' anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
-				anilistid=$(awk -v line=$line -F"\t" 'NR==line' anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+				malid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
+				anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
 			fi
 			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/list-animes-id.tsv
 		fi
 		if [[ -n "$imdbid" ]]
 		then
-			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/anime-offline-database.tsv | cut -d : -f 1)
+			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
 			if [[ -n "$line" ]]
 			then
-				malid=$(awk -v line=$line -F"\t" 'NR==line' anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
-				anilistid=$(awk -v line=$line -F"\t" 'NR==line' anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+				malid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
+				anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
 			fi
-			printf "$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/list-movies-id.tsv
+			printf "$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 		fi
 
 	fi
 }
+
+wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
+wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
 cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/list-movies-id.tsv
 
@@ -78,4 +77,4 @@ cat $SCRIPT_FOLDER/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 
 	map({"imdb_id": .[0],
 	"anidb_id": .[1],
 	"mal_id": .[2],
-	"anilist_id": .[3]})' >> $SCRIPT_FOLDER/list-movies-id.json
+	"anilist_id": .[3]})' > $SCRIPT_FOLDER/list-movies-id.json
