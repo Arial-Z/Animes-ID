@@ -65,15 +65,15 @@ do
 done < $SCRIPT_FOLDER/anime-list-master.xml
 
 cat $SCRIPT_FOLDER/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
-		map({"tvdb_id": .[0],
-		"tvdb_season": .[1],
-		"tvdb_epoffset": .[2],
-		"anidb_id": .[3],
-		"mal_id": .[4],
-		"anilist_id": .[5]})' > $SCRIPT_FOLDER/list-animes-id.json
+	map({"tvdb_id": .[0],
+	"tvdb_season": .[1],
+	"tvdb_epoffset": .[2],
+	"anidb_id": .[3],
+	"mal_id": .[4],
+	"anilist_id": .[5]})' > $SCRIPT_FOLDER/list-animes-id.json
 
 cat $SCRIPT_FOLDER/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
-		map({"imdb_id": .[0],
-		"anidb_id": .[1],
-		"mal_id": .[2],
-		"anilist_id": .[3]})' > $SCRIPT_FOLDER/list-movies-id.json
+	map({"imdb_id": .[0],
+	"anidb_id": .[1],
+	"mal_id": .[2],
+	"anilist_id": .[3]})' > $SCRIPT_FOLDER/list-movies-id.json
