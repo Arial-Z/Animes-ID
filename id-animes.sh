@@ -78,4 +78,4 @@ cat $SCRIPT_FOLDER/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 
 	map({"imdb_id": .[0],
 	"anidb_id": .[1],
 	"mal_id": .[2],
-	"anilist_id": .[3]})' > $SCRIPT_FOLDER/list-movies-id.json
+	"anilist_id": .[3]})' >> $SCRIPT_FOLDER/list-movies-id.json
