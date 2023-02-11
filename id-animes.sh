@@ -57,6 +57,8 @@ parse_dom () {
 	fi
 }
 
+echo $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/list-movies-id.tsv
+
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/anime-offline-database.json > $SCRIPT_FOLDER/anime-offline-database.tsv
 
 while read_dom
