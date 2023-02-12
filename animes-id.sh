@@ -64,6 +64,7 @@ wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
 cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+printf "\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
@@ -72,7 +73,7 @@ do
 	parse_dom
 done < $SCRIPT_FOLDER/tmp/anime-list-master.xml
 
-cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
+cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
 	map({"tvdb_id": .[0],
 	"tvdb_season": .[1],
 	"tvdb_epoffset": .[2],
@@ -80,7 +81,7 @@ cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-out
 	"mal_id": .[4],
 	"anilist_id": .[5]})' > $SCRIPT_FOLDER/list-animes-id.json
 
-cat $SCRIPT_FOLDER/tmp/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
+cat $SCRIPT_FOLDER/tmp/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
 	map({"imdb_id": .[0],
 	"anidb_id": .[1],
 	"mal_id": .[2],
