@@ -41,19 +41,29 @@ if [[ $TAG_NAME = "anime" ]] ; then
 	fi
 	if [[ -n "$imdbid" ]]
 	then
-		line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
-		if [[ -n "$line" ]]
+		if  echo $imdbid | grep ,
 		then
-			malid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
-			anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+			printf "Anidb : $anidbid multiples movies $imdbid\n" > multiples-movies.txt
+			imdbid=$(echo "$imdbid" | awk -F"," '{print $1}')
 		fi
-		printf "$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+		if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdbid
+		then
+			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
+			if [[ -n "$line" ]]
+			then
+				malid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
+				anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+			fi
+			printf "$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+		fi
 	fi
 fi
 }
 
 wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
+
+cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
@@ -69,18 +79,6 @@ cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-out
 	"anidb_id": .[3],
 	"mal_id": .[4],
 	"anilist_id": .[5]})' > $SCRIPT_FOLDER/list-animes-id.json
-
-while IFS=$'\t' read -r imdbid anidbid malid anilistid
-do
-	if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdbid
-	then
-		line=$(grep -w -n $imdbid $SCRIPT_FOLDER/override-movies.tsv | cut -d : -f 1)
-		anidbid=$(sed -n "${line}p" $SCRIPT_FOLDER/override-movies.tsv | awk -F"\t" '{print $2}')
-		malid=$(sed -n "${line}p" $SCRIPT_FOLDER/override-movies.tsv | awk -F"\t" '{print $3}')
-		anilistid=$(sed -n "${line}p" $SCRIPT_FOLDER/override-movies.tsv | awk -F"\t" '{print $4}')
-		printf "$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
-	fi
-done < $SCRIPT_FOLDER/override-movies.tsv
 
 cat $SCRIPT_FOLDER/tmp/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
 	map({"imdb_id": .[0],
