@@ -1,5 +1,13 @@
 [
   {
+    "tvdb_id": "72025",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "1",
+    "mal_id": "290",
+    "anilist_id": "290"
+  },
+  {
     "tvdb_id": "70973",
     "tvdb_season": "1",
     "tvdb_epoffset": "0",
@@ -23764,8 +23772,8 @@
     "tvdb_season": "0",
     "tvdb_epoffset": "18",
     "anidb_id": "7577",
-    "mal_id": "17321",
-    "anilist_id": "17321"
+    "mal_id": "8964",
+    "anilist_id": "8964"
   },
   {
     "tvdb_id": "196231",

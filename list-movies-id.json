@@ -1,5 +1,11 @@
 [
   {
+    "imdb_id": "tt8100900",
+    "anidb_id": "12567",
+    "mal_id": "34438",
+    "anilist_id": "101811"
+  },
+  {
     "imdb_id": "tt9598270",
     "anidb_id": "12567",
     "mal_id": "34439",
@@ -159,7 +165,19 @@
     "imdb_id": "tt12286898",
     "anidb_id": "12361",
     "mal_id": "39166",
-    "anilist_id": "124115tt0119698"
+    "anilist_id": "124115"
+  },
+  {
+    "imdb_id": null,
+    "anidb_id": null,
+    "mal_id": null,
+    "anilist_id": null
+  },
+  {
+    "imdb_id": "tt0119698",
+    "anidb_id": "7",
+    "mal_id": "164",
+    "anilist_id": "164"
   },
   {
     "imdb_id": "tt7941838",
