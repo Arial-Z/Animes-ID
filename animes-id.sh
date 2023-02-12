@@ -65,7 +65,7 @@ wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubuserco
 
 cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 printf "\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
-printf "" > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+printf "" > $SCRIPT_FOLDER/multiples-movies.txt
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
