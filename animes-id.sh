@@ -74,7 +74,7 @@ while IFS=$'\t' read -r imdbid anidbid malid anilistid
 do
 	if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdbid
 	then
-		line=$(grep -w -n $imdb_id $SCRIPT_FOLDER/override-movies.tsv | cut -d : -f 1)
+		line=$(grep -w -n $imdbid $SCRIPT_FOLDER/override-movies.tsv | cut -d : -f 1)
 		anidbid=$(sed -n "${line}p" $SCRIPT_FOLDER/override-movies.tsv | awk -F"\t" '{print $2}')
 		malid=$(sed -n "${line}p" $SCRIPT_FOLDER/override-movies.tsv | awk -F"\t" '{print $3}')
 		anilistid=$(sed -n "${line}p" $SCRIPT_FOLDER/override-movies.tsv | awk -F"\t" '{print $4}')
