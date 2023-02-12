@@ -39,7 +39,7 @@ if [[ $TAG_NAME = "anime" ]] ; then
 		fi
 		printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes-id.tsv
 	fi
-	if [[ -n "$imdbid" ]]
+	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
 	then
 		if  echo $imdbid | grep ,
 		then
