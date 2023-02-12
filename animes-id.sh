@@ -31,13 +31,13 @@ parse_dom () {
 			then
 				episodeoffset=0
 			fi
-			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDERtmp//anime-offline-database.tsv | cut -d : -f 1)
+			line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
 			if [[ -n "$line" ]]
 			then
 				malid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
 				anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
 			fi
-			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/list-animes-id.tsv
+			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes-id.tsv
 		fi
 		if [[ -n "$imdbid" ]]
 		then
@@ -56,16 +56,16 @@ parse_dom () {
 wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
-cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/list-movies-id.tsv
+cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 
-jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/anime-offline-database.json > $SCRIPT_FOLDER/anime-offline-database.tsv
+jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
 while read_dom
 do
 	parse_dom
-done < $SCRIPT_FOLDER/anime-list-master.xml
+done < $SCRIPT_FOLDER/tmp/anime-list-master.xml
 
-cat $SCRIPT_FOLDER/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
+cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
 	map({"tvdb_id": .[0],
 	"tvdb_season": .[1],
 	"tvdb_epoffset": .[2],
@@ -73,7 +73,7 @@ cat $SCRIPT_FOLDER/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 
 	"mal_id": .[4],
 	"anilist_id": .[5]})' > $SCRIPT_FOLDER/list-animes-id.json
 
-cat $SCRIPT_FOLDER/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
+cat $SCRIPT_FOLDER/tmp/list-movies-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[1:-1] | map(split("\t")) |
 	map({"imdb_id": .[0],
 	"anidb_id": .[1],
 	"mal_id": .[2],
