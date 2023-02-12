@@ -43,7 +43,7 @@ if [[ $TAG_NAME = "anime" ]] ; then
 	then
 		if  echo $imdbid | grep ,
 		then
-			printf "Anidb : $anidbid multiples movies $imdbid\n" > multiples-movies.txt
+			printf "Anidb : $anidbid multiples movies $imdbid\n" >> multiples-movies.txt
 			imdbid=$(echo "$imdbid" | awk -F"," '{print $1}')
 		fi
 		if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdbid
@@ -65,6 +65,7 @@ wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubuserco
 
 cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 printf "\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+printf "" > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
