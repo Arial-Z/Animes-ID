@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#General variables
-LOG=$SCRIPT_FOLDER/LOG/${media_type}_$(date +%Y.%m.%d).log
-
 # functions
 function get-mal-id-from-tvdb-id () {
 	jq --arg tvdb_id "$tvdb_id" '.[] | select( .tvdb_id == $tvdb_id ) | select( .tvdb_season == "1"  or .tvdb_season == "-1" ) | select( .tvdb_epoffset == "0" ) | .mal_id' -r $SCRIPT_FOLDER/list-animes-id.json

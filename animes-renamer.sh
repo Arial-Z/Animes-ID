@@ -5,6 +5,7 @@ media_type=animes
 source $SCRIPT_FOLDER/functions.sh
 METADATA=$SCRIPT_FOLDER/animes-full-mal.yml
 OVERRIDE=override-ID-$media_type.tsv
+LOG=$SCRIPT_FOLDER/LOG/${media_type}_$(date +%Y.%m.%d).log
 
 # check if files and folder exist
 echo "metadata:" > $METADATA
