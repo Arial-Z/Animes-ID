@@ -13,6 +13,7 @@ then
 	mkdir $SCRIPT_FOLDER/data
 else
 	find $SCRIPT_FOLDER/data/* -mtime +3 -exec rm {} \;					#delete json data if older than 2 days
+fi
 if [ ! -d $SCRIPT_FOLDER/ID ]											#check if exist and create folder and file for ID
 then
 	mkdir $SCRIPT_FOLDER/ID
