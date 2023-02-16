@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #General variables
-LOG=$LOG_FOLDER/${media_type}_$(date +%Y.%m.%d).log
-MATCH_LOG=$LOG_FOLDER/missing-id.log
+LOG=$SCRIPT_FOLDER/LOG/${media_type}_$(date +%Y.%m.%d).log
 
 # functions
 function get-mal-id-from-tvdb-id () {
