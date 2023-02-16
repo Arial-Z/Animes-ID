@@ -83,8 +83,7 @@ function parse_dom () {
 wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
-cat $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
-printf "\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+tail -n +2 $SCRIPT_FOLDER/override-movies.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 printf "" > $SCRIPT_FOLDER/missing-multiples-movies.txt
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
