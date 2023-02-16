@@ -30,7 +30,7 @@ then
 	mkdir $LOG_FOLDER
 fi
 
-jq '.[] | select( .tvdb_season == "1"  or .tvdb_season == "-1" ) | select( .tvdb_epoffset == "0" ) | .tvdb_id' -r list-animes-id.json > $SCRIPT_FOLDER/tmp/animes-full-tvdb.tsv
+jq '.[] | select( .tvdb_season == "1"  or .tvdb_season == "-1" ) | select( .tvdb_epoffset == "0" ) | .tvdb_id' -r $SCRIPT_FOLDER/list-animes-id.json > $SCRIPT_FOLDER/tmp/animes-full-tvdb.tsv
 
 # create ID/animes.tsv from the clean list ( tvdb_id	mal_id	title_anime	title_plex )
 override_line=$(wc -l < $SCRIPT_FOLDER/override-ID-animes.tsv)
