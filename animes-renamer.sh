@@ -41,7 +41,6 @@ then
 		then
 			printf "$tvdb_id\t$mal_id\t$title_anime\n" >> $SCRIPT_FOLDER/ID/animes.tsv
 			echo "$(date +%Y.%m.%d" - "%H:%M:%S) - override found for : $title_anime" >> $LOG
-			fi
 		fi
 	done < $SCRIPT_FOLDER/override-ID-animes.tsv
 fi
