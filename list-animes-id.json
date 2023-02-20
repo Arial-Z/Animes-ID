@@ -48085,15 +48085,7 @@
     "tvdb_epoffset": "0",
     "anidb_id": "16917",
     "mal_id": "50175",
-    "anilist_id": null
-  },
-  {
-    "tvdb_id": "54443",
-    "tvdb_season": "140457",
-    "tvdb_epoffset": null,
-    "anidb_id": null,
-    "mal_id": null,
-    "anilist_id": null
+    "anilist_id": "140457"
   },
   {
     "tvdb_id": "411665",
