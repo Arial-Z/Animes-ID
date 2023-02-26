@@ -8397,7 +8397,13 @@
     "imdb_id": "tt7089878",
     "anidb_id": "13491",
     "mal_id": "35677",
-    "anilist_id": "100178"
+    "anilist_id": null
+  },
+  {
+    "imdb_id": "54590",
+    "anidb_id": "100178",
+    "mal_id": null,
+    "anilist_id": null
   },
   {
     "imdb_id": "tt9081300",
