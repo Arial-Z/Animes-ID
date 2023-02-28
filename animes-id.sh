@@ -28,7 +28,7 @@ function parse-dom () {
 	then
 		eval local $ATTRIBUTES
 		id-from-tvdb
-		#id-from-imdb
+		id-from-imdb
 	fi
 }
 function id-from-tvdb () {
@@ -102,17 +102,12 @@ function get-mal-anilist-id () {
 					curl "https://api.jikan.moe/v4/anime/$malid" > $SCRIPT_FOLDER/tmp/mal-infos.json
 					sleep 1.2
 					mal_start_date=$(jq '.data.aired.prop.from| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/mal-infos.json | sed -r 's:\t:/:g')
-					echo "$mal_start_date"
 					anilist_start_date=$(jq '.data.Media.startDate| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/anilist-infos.json | sed -r 's:\t:/:g')
-					echo "$anilist_start_date"
 					if [[ $mal_start_date == $anilist_start_date ]]
 					then
-						echo "same date"
 						anilistid=$(jq '.data.Media.id' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
-						echo "$anilistid"
 						printf "$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/override-animes-id.tsv
 					else
-						echo "!= date"
 						printf "Missing Anilist id for Anidb : $anidbid fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anilist.txt
 					fi
 				fi
@@ -129,7 +124,7 @@ wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
 tail -n +2 $SCRIPT_FOLDER/override-movies-id.tsv > $SCRIPT_FOLDER/tmp/override-movies-id.tsv
-tail -n +2 $SCRIPT_FOLDER/override-animes-id.tsv > $SCRIPT_FOLDER/tmp/override-animes-id.tsv
+tail -n +2 $SCRIPT_FOLDER/override-animes-id.tsv > $SCRIPT_FOLDER/tmp/list-movies-id.tsv
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
