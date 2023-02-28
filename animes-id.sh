@@ -101,9 +101,9 @@ function get-mal-anilist-id () {
 					--data '{ "query": "{ Media(idMal: '"$malid"') { id startDate { day month year } } }" }' > $SCRIPT_FOLDER/tmp/anilist-infos.json
 					curl "https://api.jikan.moe/v4/anime/$malid" > $SCRIPT_FOLDER/tmp/mal-infos.json
 					sleep 1.2
-					mal_start_date=$(jq '.data.aired.prop.from' -r $SCRIPT_FOLDER/tmp/mal-infos.json)
+					mal_start_date=$(jq '.data.aired.prop.from| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/mal-infos.json | sed -r 's:\t:/:g')
 					echo "$mal_start_date"
-					anilist_start_date=$(jq '.data.Media.startDate' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
+					anilist_start_date=$(jq '.data.Media.startDate| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/anilist-infos.json | sed -r 's:\t:/:g')
 					echo "$anilist_start_date"
 					if [[ mal_start_date == anilist_start_date ]]
 					then
