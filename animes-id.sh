@@ -95,10 +95,12 @@ function get-mal-anilist-id () {
 				anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
 				if [[ -z "$anilistid" ]]
 				then
-					wget -q -O- --post-data '{ "query": "{ Media(idMal: '"$malid"') { id startDate { day month year } } }" }' -H "https://graphql.anilist.co/" --header "content-type: application/json" -O $SCRIPT_FOLDER/tmp/anilist-infos.json
-					sleep 0.5s
-					wget -O $SCRIPT_FOLDER/tmp/mal-infos.json "https://api.jikan.moe/v4/anime/$malid"
-					sleep 1s
+					-X POST \
+					-H 'content-type: application/json' \
+					--data '{ "query": "{ Media(idMal: '"$malid"') { id startDate { day month year } } }" }' > $SCRIPT_FOLDER/tmp/anilist-infos.json
+					sleep 0.7s
+					curl "https://api.jikan.moe/v4/anime/$malid" > $SCRIPT_FOLDER/tmp/mal-infos.json
+					sleep 0.7s
 					mal_start_date=$(jq '.data.aired.prop.from| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/mal-infos.json | sed -r 's:\t:/:g')
 					anilist_start_date=$(jq '.data.Media.startDate| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/anilist-infos.json | sed -r 's:\t:/:g')
 					if [[ $mal_start_date == $anilist_start_date ]]
