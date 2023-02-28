@@ -9,7 +9,7 @@ else
     rm $SCRIPT_FOLDER/tmp/*
 fi
 
-function missing_multiples_movies () {
+function missing-multiples-movies () {
     if  echo $imdb_id | grep ,
     then
         columns_total_mumbers=$(echo "$imdb_id" | awk -F"," '{print NF}')
@@ -49,7 +49,7 @@ function id-from-tvdb () {
 function id-from-imdb () {
 	if [[ -n "$imdb_id" ]] && [[ $imdb_id != "unknown" ]]
 	then
-		missing_multiples_movies
+		missing-multiples-movies
 		if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdb_id
 		then
 			get-mal-anilist-id
@@ -97,7 +97,7 @@ function get-mal-anilist-id () {
 	fi
 }
 
-function read_dom () {
+function read-dom () {
 	local IFS=\>
 	read -d \< ENTITY CONTENT
 	local RET=$?
@@ -106,7 +106,7 @@ function read_dom () {
 	return $RET
 }
 
-function parse_dom () {
+function parse-dom () {
 	if [[ $TAG_NAME = "anime" ]]
 	then
 		eval local $ATTRIBUTES
@@ -127,9 +127,9 @@ printf "" > $SCRIPT_FOLDER/mapping-needed/missing-anilist.txt
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
-while read_dom
+while read-dom
 do
-	parse_dom
+	parse-dom
 done < $SCRIPT_FOLDER/tmp/anime-list-master.xml
 
 cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
