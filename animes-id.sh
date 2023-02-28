@@ -69,20 +69,23 @@ function id-from-imdb () {
 	fi
 }
 function get-mal-anilist-id () {
+	echo "1"
 	if awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w $anidb_id
 	then
-		echo "anidb found for tvdb : $tvdb_id"
+		echo "2"
 		line_anidb=$(awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w -n $anidb_id | cut -d : -f 1)
 		mal_id=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $2}')
 		anilist_id=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $3}')
 	else
+		echo "3"
 		line=$(grep -w -n "https://anidb.net/anime/$anidb_id"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
 		if [[ -n "$line" ]]
 		then
-			echo "anidb found for tvdb : $tvdb_id"
+			echo "4"
 			mal_id=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
 			if [[ -n "$anilist_id" ]]
 			then
+				echo "5"
 				anilist_id=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
 				if [[ -z "$anilist_id" ]]
 				then
@@ -105,7 +108,6 @@ function get-mal-anilist-id () {
 				printf "Missing MAL id for Anidb : $anidb_id fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-mal.txt
 			fi
 		else
-			echo "anidb missing for tvdb : $tvdb_id"
 			printf "Anidb : $anidb_id missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
 		fi
 	fi
@@ -144,7 +146,6 @@ jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $
 while read-dom
 do
 	parse-dom
-	echo "oui"
 done < $SCRIPT_FOLDER/tmp/anime-list-master.xml
 
 cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
