@@ -8,6 +8,12 @@ then
 else
     rm $SCRIPT_FOLDER/tmp/*
 fi
+if [ ! -d $SCRIPT_FOLDER/mapping-needed ]
+then
+	mkdir $SCRIPT_FOLDER/mapping-needed
+else
+    rm $SCRIPT_FOLDER/mapping-needed/*
+fi
 
 function missing-multiples-movies () {
     if  echo $imdb_id | grep ,
@@ -120,10 +126,6 @@ wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubuserco
 
 tail -n +2 $SCRIPT_FOLDER/override-movies-id.tsv > $SCRIPT_FOLDER/tmp/override-movies-id.tsv
 tail -n +2 $SCRIPT_FOLDER/override-animes-id.tsv > $SCRIPT_FOLDER/tmp/override-animes-id.tsv
-printf "" > $SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt
-printf "" > $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
-printf "" > $SCRIPT_FOLDER/mapping-needed/missing-mal.txt
-printf "" > $SCRIPT_FOLDER/mapping-needed/missing-anilist.txt
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
