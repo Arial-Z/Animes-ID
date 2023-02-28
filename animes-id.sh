@@ -28,7 +28,7 @@ function parse-dom () {
 	then
 		eval local $ATTRIBUTES
 		id-from-tvdb
-		id-from-imdb
+		#id-from-imdb
 	fi
 }
 function id-from-tvdb () {
@@ -107,9 +107,12 @@ function get-mal-anilist-id () {
 					echo "$anilist_start_date"
 					if [[ mal_start_date == anilist_start_date ]]
 					then
+						echo "same date"
 						anilistid=$(jq '.data.Media.id' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
+						echo "$anilistid"
 						printf "$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/override-animes-id.tsv
 					else
+						echo "!= date"
 						printf "Missing Anilist id for Anidb : $anidbid fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anilist.txt
 					fi
 				fi
