@@ -27,19 +27,8 @@ function parse-dom () {
 	if [[ $TAG_NAME = "anime" ]]
 	then
 		eval local $ATTRIBUTES
-		if [[ -n "$tvdbid" ]] && [ "$tvdbid" -eq "$tvdbid" ] 2>/dev/null
-		then
-			if [[ "$defaulttvdbseason" == a ]]
-			then
-				defaulttvdbseason=-1
-			fi
-			if [[ -z "$episodeoffset" ]]
-			then
-				episodeoffset=0
-			fi
-			get-mal-anilist-id
-			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes-id.tsv
-		fi
+		id-from-tvdb
+		id-from-imdb
 	fi
 }
 function id-from-tvdb () {
@@ -69,23 +58,18 @@ function id-from-imdb () {
 	fi
 }
 function get-mal-anilist-id () {
-	echo "1"
 	if awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w $anidbid
 	then
-		echo "2"
 		line_anidb=$(awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w -n $anidbid | cut -d : -f 1)
 		malid=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $2}')
 		anilistid=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $3}')
 	else
-		echo "3"
 		line=$(grep -w -n "https://anidb.net/anime/$anidbid"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
 		if [[ -n "$line" ]]
 		then
-			echo "4"
 			malid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
-			if [[ -n "$anilistid" ]]
+			if [[ -n "$malid" ]]
 			then
-				echo "5"
 				anilistid=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
 				if [[ -z "$anilistid" ]]
 				then
