@@ -133,6 +133,7 @@ jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $
 while read-dom
 do
 	parse-dom
+	echo "oui"
 done < $SCRIPT_FOLDER/tmp/anime-list-master.xml
 
 cat $SCRIPT_FOLDER/tmp/list-animes-id.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
