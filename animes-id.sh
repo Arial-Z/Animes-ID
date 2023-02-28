@@ -15,6 +15,22 @@ else
     rm $SCRIPT_FOLDER/mapping-needed/*
 fi
 
+function read-dom () {
+	local IFS=\>
+	read -d \< ENTITY CONTENT
+	local RET=$?
+	TAG_NAME=${ENTITY%% *}
+	ATTRIBUTES=${ENTITY#* }
+	return $RET
+}
+function parse-dom () {
+	if [[ $TAG_NAME = "anime" ]]
+	then
+		eval local $ATTRIBUTES
+		id-from-tvdb
+		id-from-imdb
+	fi
+}
 function missing-multiples-movies () {
     if  echo $imdb_id | grep ,
     then
@@ -100,24 +116,6 @@ function get-mal-anilist-id () {
 		else
 			printf "Anidb : $anidb_id missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
 		fi
-	fi
-}
-
-function read-dom () {
-	local IFS=\>
-	read -d \< ENTITY CONTENT
-	local RET=$?
-	TAG_NAME=${ENTITY%% *}
-	ATTRIBUTES=${ENTITY#* }
-	return $RET
-}
-
-function parse-dom () {
-	if [[ $TAG_NAME = "anime" ]]
-	then
-		eval local $ATTRIBUTES
-		id-from-tvdb
-		id-from-imdb
 	fi
 }
 
