@@ -26,35 +26,21 @@ function read-dom () {
 function parse-dom () {
 	if [[ $TAG_NAME = "anime" ]]
 	then
-		echo "oui 2"
 		eval local $ATTRIBUTES
-		id-from-tvdb
-		id-from-imdb
-	else
-		echo "non"
+		if [[ -n "$tvdbid" ]] && [ "$tvdbid" -eq "$tvdbid" ] 2>/dev/null
+		then
+			if [[ "$defaulttvdbseason" == a ]]
+			then
+				defaulttvdbseason=-1
+			fi
+			if [[ -z "$episodeoffset" ]]
+			then
+				episodeoffset=0
+			fi
+			get-mal-anilist-id
+			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes-id.tsv
+		fi
 	fi
-}
-function missing-multiples-movies () {
-    if  echo $imdb_id | grep ,
-    then
-        columns_total_mumbers=$(echo "$imdb_id" | awk -F"," '{print NF}')
-        columns_mumbers=1
-        missing_movies=""
-        while [ $columns_mumbers -le $columns_total_mumbers ];
-        do
-            current_movie=$(echo "$imdb_id" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
-            if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/override-movies.tsv | grep -w $current_movie
-            then
-                missing_movies=$(printf "$missing_movies$current_movie," )
-            fi
-        ((columns_mumbers++))
-        done
-        if [[ -n "$missing_movies" ]]
-        then
-            printf "Anidb : $anidb_id missing multiples movies $missing_movies\n" >> $SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt
-        fi
-        imdb_id=$(echo "$imdb_id" | awk -F"," '{print $1}')
-    fi
 }
 function id-from-tvdb () {
 	if [[ -n "$tvdb_id" ]] && [ "$tvdb_id" -eq "$tvdb_id" ] 2>/dev/null
@@ -123,6 +109,28 @@ function get-mal-anilist-id () {
 			printf "Anidb : $anidb_id missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
 		fi
 	fi
+}
+function missing-multiples-movies () {
+    if  echo $imdb_id | grep ,
+    then
+        columns_total_mumbers=$(echo "$imdb_id" | awk -F"," '{print NF}')
+        columns_mumbers=1
+        missing_movies=""
+        while [ $columns_mumbers -le $columns_total_mumbers ];
+        do
+            current_movie=$(echo "$imdb_id" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
+            if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/override-movies.tsv | grep -w $current_movie
+            then
+                missing_movies=$(printf "$missing_movies$current_movie," )
+            fi
+        ((columns_mumbers++))
+        done
+        if [[ -n "$missing_movies" ]]
+        then
+            printf "Anidb : $anidb_id missing multiples movies $missing_movies\n" >> $SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt
+        fi
+        imdb_id=$(echo "$imdb_id" | awk -F"," '{print $1}')
+    fi
 }
 
 wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
