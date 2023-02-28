@@ -29,6 +29,8 @@ function parse-dom () {
 		eval local $ATTRIBUTES
 		id-from-tvdb
 		id-from-imdb
+		malid="null"
+		anilistid="null"
 	fi
 }
 function id-from-tvdb () {
@@ -109,13 +111,16 @@ function get-mal-anilist-id () {
 						anilistid=$(jq '.data.Media.id' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
 						printf "$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/override-animes-id.tsv
 					else
+						anilist="null"
 						printf "Missing Anilist id for Anidb : $anidbid fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anilist.txt
 					fi
 				fi
 			else
+				malid="null"
 				printf "Missing MAL id for Anidb : $anidbid fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-mal.txt
 			fi
 		else
+			anidb="null"
 			printf "Anidb : $anidbid missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
 		fi
 	fi
