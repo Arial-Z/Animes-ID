@@ -100,7 +100,7 @@ function get-mal-anilist-id () {
 					-H 'content-type: application/json' \
 					--data '{ "query": "{ Media(idMal: '"$malid"') { id startDate { day month year } } }" }' > $SCRIPT_FOLDER/tmp/anilist-infos.json
 					curl "https://api.jikan.moe/v4/anime/$malid" > $SCRIPT_FOLDER/tmp/mal-infos.json
-					sleep 1.2nan
+					sleep 1.2
 					mal_start_date=$(jq '.data.aired.prop.from' -r $SCRIPT_FOLDER/tmp/mal-infos.json)
 					echo "$mal_start_date"
 					anilist_start_date=$(jq '.data.Media.startDate' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
