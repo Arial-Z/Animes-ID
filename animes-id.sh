@@ -82,6 +82,7 @@ function id-from-imdb () {
 function get-mal-anilist-id () {
 	if awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w $anidb_id
 	then
+		echo "anidb found for tvdb : $tvdb_id"
 		line_anidb=$(awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w -n $anidb_id | cut -d : -f 1)
 		mal_id=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $2}')
 		anilist_id=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $3}')
@@ -112,10 +113,10 @@ function get-mal-anilist-id () {
 					fi
 				fi
 			else
-				echo "anidb missing for tvdb : $tvdb_id"
 				printf "Missing MAL id for Anidb : $anidb_id fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-mal.txt
 			fi
 		else
+			echo "anidb missing for tvdb : $tvdb_id"
 			printf "Anidb : $anidb_id missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
 		fi
 	fi
