@@ -105,7 +105,7 @@ function get-mal-anilist-id () {
 					echo "$mal_start_date"
 					anilist_start_date=$(jq '.data.Media.startDate| [.year, .month, .day] | @tsv' -r $SCRIPT_FOLDER/tmp/anilist-infos.json | sed -r 's:\t:/:g')
 					echo "$anilist_start_date"
-					if [[ mal_start_date == anilist_start_date ]]
+					if [[ $mal_start_date == $anilist_start_date ]]
 					then
 						echo "same date"
 						anilistid=$(jq '.data.Media.id' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
