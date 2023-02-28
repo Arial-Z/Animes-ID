@@ -97,7 +97,7 @@ function get-mal-anilist-id () {
 				then
 					-X POST \
 					-H 'content-type: application/json' \
-					--data '{ "query": "{ Media(idMal: '"$malid"') { id startDate { day month year } } }" }' > $SCRIPT_FOLDER/tmp/anilist-infos.json
+					--data '{ "query": "{ Media(idMal: $malid ) { id startDate { day month year } } }" }' > $SCRIPT_FOLDER/tmp/anilist-infos.json
 					sleep 0.7s
 					curl "https://api.jikan.moe/v4/anime/$malid" > $SCRIPT_FOLDER/tmp/mal-infos.json
 					sleep 0.7s
