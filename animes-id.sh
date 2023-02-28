@@ -89,6 +89,7 @@ function get-mal-anilist-id () {
 		line=$(grep -w -n "https://anidb.net/anime/$anidb_id"  $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | cut -d : -f 1)
 		if [[ -n "$line" ]]
 		then
+			echo "anidb found for tvdb : $tvdb_id"
 			mal_id=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
 			if [[ -n "$anilist_id" ]]
 			then
@@ -111,6 +112,7 @@ function get-mal-anilist-id () {
 					fi
 				fi
 			else
+				echo "anidb missing for tvdb : $tvdb_id"
 				printf "Missing MAL id for Anidb : $anidb_id fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-mal.txt
 			fi
 		else
