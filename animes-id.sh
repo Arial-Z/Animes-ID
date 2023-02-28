@@ -57,6 +57,28 @@ function id-from-imdb () {
 		fi
 	fi
 }
+function missing-multiples-movies () {
+    if  echo $imdbid | grep ,
+    then
+        columns_total_mumbers=$(echo "$imdbid" | awk -F"," '{print NF}')
+        columns_mumbers=1
+        missing_movies=""
+        while [ $columns_mumbers -le $columns_total_mumbers ];
+        do
+            current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
+            if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/override-movies-id.tsv | grep -w $current_movie
+            then
+                missing_movies=$(printf "$missing_movies$current_movie," )
+            fi
+        ((columns_mumbers++))
+        done
+        if [[ -n "$missing_movies" ]]
+        then
+            printf "Anidb : $anidbid missing multiples movies $missing_movies\n" >> $SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt
+        fi
+        imdbid=$(echo "$imdbid" | awk -F"," '{print $1}')
+    fi
+}
 function get-mal-anilist-id () {
 	if awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w $anidbid
 	then
@@ -78,8 +100,11 @@ function get-mal-anilist-id () {
 					-H 'content-type: application/json' \
 					--data '{ "query": "{ Media(idMal: '"$malid"') { id startDate { day month year } } }" }' > $SCRIPT_FOLDER/tmp/anilist-infos.json
 					curl "https://api.jikan.moe/v4/anime/$malid" > $SCRIPT_FOLDER/tmp/mal-infos.json
+					sleep 1.2nan
 					mal_start_date=$(jq '.data.aired.prop.from' -r $SCRIPT_FOLDER/tmp/mal-infos.json)
+					echo "$mal_start_date"
 					anilist_start_date=$(jq '.data.Media.startDate' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
+					echo "$anilist_start_date"
 					if [[ mal_start_date == anilist_start_date ]]
 					then
 						anilistid=$(jq '.data.Media.id' -r $SCRIPT_FOLDER/tmp/anilist-infos.json)
@@ -95,28 +120,6 @@ function get-mal-anilist-id () {
 			printf "Anidb : $anidbid missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
 		fi
 	fi
-}
-function missing-multiples-movies () {
-    if  echo $imdbid | grep ,
-    then
-        columns_total_mumbers=$(echo "$imdbid" | awk -F"," '{print NF}')
-        columns_mumbers=1
-        missing_movies=""
-        while [ $columns_mumbers -le $columns_total_mumbers ];
-        do
-            current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
-            if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/override-movies.tsv | grep -w $current_movie
-            then
-                missing_movies=$(printf "$missing_movies$current_movie," )
-            fi
-        ((columns_mumbers++))
-        done
-        if [[ -n "$missing_movies" ]]
-        then
-            printf "Anidb : $anidbid missing multiples movies $missing_movies\n" >> $SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt
-        fi
-        imdbid=$(echo "$imdbid" | awk -F"," '{print $1}')
-    fi
 }
 
 wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
