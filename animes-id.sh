@@ -30,6 +30,8 @@ function parse-dom () {
 		eval local $ATTRIBUTES
 		id-from-tvdb
 		id-from-imdb
+	else
+		echo "non"
 	fi
 }
 function missing-multiples-movies () {
