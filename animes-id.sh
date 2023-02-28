@@ -31,11 +31,36 @@ function missing_multiples_movies () {
         imdb_id=$(echo "$imdb_id" | awk -F"," '{print $1}')
     fi
 }
-
+function id-from-tvdb () {
+	if [[ -n "$tvdb_id" ]] && [ "$tvdb_id" -eq "$tvdb_id" ] 2>/dev/null
+	then
+		if [[ "$defaulttvdbseason" == a ]]
+		then
+			defaulttvdbseason=-1
+		fi
+		if [[ -z "$episodeoffset" ]]
+		then
+			episodeoffset=0
+		fi
+		get-mal-anilist-id
+		printf "$tvdb_id\t$defaulttvdbseason\t$episodeoffset\t$anidb_id\t$mal_id\t$anilist_id\n" >> $SCRIPT_FOLDER/tmp/list-animes-id.tsv
+	fi
+}
+function id-from-imdb () {
+	if [[ -n "$imdb_id" ]] && [[ $imdb_id != "unknown" ]]
+	then
+		missing_multiples_movies
+		if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdb_id
+		then
+			get-mal-anilist-id
+			printf "$imdb_id\t$anidb_id\t$mal_id\t$anilist_id\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
+		fi
+	fi
+}
 function get-mal-anilist-id () {
 	if awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w $anidb_id
 	then
-		line_anidb=$(grep -w -n $tvdb_id $SCRIPT_FOLDER/tmp/override-animes-id.tsv | cut -d : -f 1)
+		line_anidb=$(awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/override-animes-id.tsv | grep -w -n $anidb_id | cut -d : -f 1)
 		mal_id=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $2}')
 		anilist_id=$(sed -n "${line_anidb}p" $SCRIPT_FOLDER/tmp/override-animes-id.tsv | awk -F"\t" '{print $3}')
 	else
@@ -46,7 +71,7 @@ function get-mal-anilist-id () {
 			if [[ -n "$anilist_id" ]]
 			then
 				anilist_id=$(awk -v line=$line -F"\t" 'NR==line' $SCRIPT_FOLDER/tmp/anime-offline-database.tsv | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
-				if [[ -z "$anilist_id" ]] && [[ -n "$mal_id" ]]
+				if [[ -z "$anilist_id" ]]
 				then
 					curl 'https://graphql.anilist.co/' \
 					-X POST \
@@ -81,30 +106,11 @@ function read_dom () {
 }
 
 function parse_dom () {
-	if [[ $TAG_NAME = "anime" ]] ; then
+	if [[ $TAG_NAME = "anime" ]]
+	then
 		eval local $ATTRIBUTES
-		if [[ -n "$tvdb_id" ]] && [ "$tvdb_id" -eq "$tvdb_id" ] 2>/dev/null
-		then
-			if [[ "$defaulttvdbseason" == a ]]
-			then
-				defaulttvdbseason=-1
-			fi
-			if [[ -z "$episodeoffset" ]]
-			then
-				episodeoffset=0
-			fi
-			get-mal-anilist-id
-			printf "$tvdb_id\t$defaulttvdbseason\t$episodeoffset\t$anidb_id\t$mal_id\t$anilist_id\n" >> $SCRIPT_FOLDER/tmp/list-animes-id.tsv
-		fi
-		if [[ -n "$imdb_id" ]] && [[ $imdb_id != "unknown" ]]
-		then
-			missing_multiples_movies
-			if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies-id.tsv | grep -w $imdb_id
-			then
-				get-mal-anilist-id
-				printf "$imdb_id\t$anidb_id\t$mal_id\t$anilist_id\n" >> $SCRIPT_FOLDER/tmp/list-movies-id.tsv
-			fi
-		fi
+		id-from-tvdb
+		id-from-imdb
 	fi
 }
 
