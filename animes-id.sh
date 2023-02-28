@@ -26,6 +26,7 @@ function read-dom () {
 function parse-dom () {
 	if [[ $TAG_NAME = "anime" ]]
 	then
+		echo "oui 2"
 		eval local $ATTRIBUTES
 		id-from-tvdb
 		id-from-imdb
