@@ -93,6 +93,7 @@ function get-mal-anilist-id () {
 			fi
 		else
 			printf "Anidb : $anidb_id missing from manami-project fix needed\n" >> $SCRIPT_FOLDER/mapping-needed/missing-anidb.txt
+		fi
 	fi
 }
 
