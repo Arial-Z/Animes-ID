@@ -1989,7 +1989,15 @@
     "tvdb_epoffset": "0",
     "anidb_id": "285",
     "mal_id": "1486",
-    "anilist_id": "1486"
+    "anilist_id": null
+  },
+  {
+    "tvdb_id": "54785",
+    "tvdb_season": "1486",
+    "tvdb_epoffset": null,
+    "anidb_id": null,
+    "mal_id": null,
+    "anilist_id": null
   },
   {
     "tvdb_id": "79449",
