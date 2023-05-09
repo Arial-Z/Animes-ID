@@ -14,8 +14,10 @@ then
 else
     rm $SCRIPT_FOLDER/mapping-needed/*
 fi
-:> $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
-
+if [ -f $SCRIPT_FOLDER/override/auto-override-animes-id.tsv ]
+then
+	:> $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
+fi
 
 function read-dom () {
 	local IFS=\>
@@ -29,29 +31,14 @@ function parse-dom () {
 	if [[ $TAG_NAME = "anime" ]]
 	then
 		eval local $ATTRIBUTES
-		id-from-tvdb-imdb
+		id-from-tvdb
+		id-from-imdb
 		malid=""
 		anilistid=""
 	fi
 }
-function id-from-tvdb-imdb () {
-	valid_tvdbid=""
-	valid_imdb=""
-	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
-	then
-		valid_imdb=1
-	else
-		valid_imdb=0
-		tvdbid=""
-	fi
+function id-from-tvdb () {
 	if [[ -n "$tvdbid" ]] && [ "$tvdbid" -eq "$tvdbid" ] 2>/dev/null
-	then
-		valid_tvdbid=1
-	else
-		valid_tvdbid=0
-		imdbid=""
-	fi
-	if [ "$valid_tvdbid" -eq 1 ] 2>/dev/null
 	then
 		if [[ "$defaulttvdbseason" == a ]]
 		then
@@ -61,17 +48,21 @@ function id-from-tvdb-imdb () {
 		then
 			episodeoffset=0
 		fi
-		if [ "$valid_imdb" -eq 1 ] 2>/dev/null
+		if ! awk -F"\t" '{print $4}' $SCRIPT_FOLDER/tmp/list-animes.tsv | grep -w $anidbid
 		then
-			missing-multiples-movies
+			get-mal-anilist-id
+			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes.tsv
 		fi
-		if [ "$valid_tvdbid" -eq 1 ] || [ "$valid_tvdbid" -eq 1 ] 2>/dev/null
+	fi
+}
+function id-from-imdb () {
+	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
+	then
+		missing-multiples-movies
+		if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/tmp/list-movies.tsv | grep -w $imdbid
 		then
-			if ! awk -F"\t" '{print $5}' $SCRIPT_FOLDER/tmp/list-animes.tsv | grep -w $anidbid
-			then
-				get-mal-anilist-id
-				printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes.tsv
-			fi
+			get-mal-anilist-id
+			printf "$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-movies.tsv
 		fi
 	fi
 }
@@ -84,7 +75,7 @@ function missing-multiples-movies () {
         while [ $columns_mumbers -le $columns_total_mumbers ];
         do
             current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
-            if ! awk -F"\t" '{print $4}' $SCRIPT_FOLDER/override/override.tsv | grep -w $current_movie
+            if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/override/override-imdb.tsv | grep -w $current_movie
             then
                 missing_movies=$(printf "$missing_movies$current_movie," )
             fi
@@ -143,7 +134,8 @@ wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
 tail -n +2 $SCRIPT_FOLDER/override/override-animes-id.tsv > $SCRIPT_FOLDER/tmp/override-animes-id.tsv
-tail -n +2 $SCRIPT_FOLDER/override/override.tsv > $SCRIPT_FOLDER/tmp/list-animes.tsv
+tail -n +2 $SCRIPT_FOLDER/override/override-tvdb.tsv > $SCRIPT_FOLDER/tmp/list-animes.tsv
+tail -n +2 $SCRIPT_FOLDER/override/override-imdb.tsv > $SCRIPT_FOLDER/tmp/list-movies.tsv
 
 jq ".data[].sources| @tsv" -r $SCRIPT_FOLDER/tmp/anime-offline-database.json > $SCRIPT_FOLDER/tmp/anime-offline-database.tsv
 
@@ -156,7 +148,12 @@ cat $SCRIPT_FOLDER/tmp/list-animes.tsv | jq -s  --slurp --raw-input --raw-output
 	map({"tvdb_id": .[0],
 	"tvdb_season": .[1],
 	"tvdb_epoffset": .[2],
-	"imdb_id": .[3],
-	"anidb_id": .[4],
-	"mal_id": .[5],
-	"anilist_id": .[6]})' > $SCRIPT_FOLDER/list-animes-id.json
+	"anidb_id": .[3],
+	"mal_id": .[4],
+	"anilist_id": .[5]})' > $SCRIPT_FOLDER/list-animes-id.json
+
+cat $SCRIPT_FOLDER/tmp/list-movies.tsv | jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
+	map({"imdb_id": .[0],
+	"anidb_id": .[1],
+	"mal_id": .[2],
+	"anilist_id": .[3]})' > $SCRIPT_FOLDER/list-movies-id.json
