@@ -66,7 +66,7 @@ function id-from-tvdb-imdb () {
 		then
 			missing-multiples-movies
 		fi
-		if ! awk -F"\t" '{print $4}' $SCRIPT_FOLDER/tmp/list-animes.tsv | grep -w $anidbid
+		if ! awk -F"\t" '{print $5}' $SCRIPT_FOLDER/tmp/list-animes.tsv | grep -w $anidbid
 		then
 			get-mal-anilist-id
 			printf "$tvdbid\t$defaulttvdbseason\t$episodeoffset\t$imdbid\t$anidbid\t$malid\t$anilistid\n" >> $SCRIPT_FOLDER/tmp/list-animes.tsv
