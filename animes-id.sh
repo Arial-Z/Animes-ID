@@ -140,7 +140,7 @@ wget -O $SCRIPT_FOLDER/tmp/anime-list-master.xml "https://raw.githubusercontent.
 wget -O $SCRIPT_FOLDER/tmp/anime-offline-database.json "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
 tail -n +2 $SCRIPT_FOLDER/override/override-animes-id.tsv > $SCRIPT_FOLDER/tmp/override-animes-id.tsv
-cat $SCRIPT_FOLDER/auto-override-animes-id.tsv > $SCRIPT_FOLDER/tmp/override-animes-id.tsv
+cat $SCRIPT_FOLDER/override/auto-override-animes-id.tsv > $SCRIPT_FOLDER/tmp/override-animes-id.tsv
 tail -n +2 $SCRIPT_FOLDER/override/override-tvdb.tsv > $SCRIPT_FOLDER/tmp/list-animes.tsv
 tail -n +2 $SCRIPT_FOLDER/override/override-imdb.tsv > $SCRIPT_FOLDER/tmp/list-movies.tsv
 
