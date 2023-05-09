@@ -65,6 +65,7 @@ function id-from-tvdb-imdb () {
 		then
 			missing-multiples-movies
 		fi
+		if [ "$valid_tvdbid" -eq 1 ] || [ "$valid_tvdbid" -eq 1 ] 2>/dev/null
 		if ! awk -F"\t" '{print $5}' $SCRIPT_FOLDER/tmp/list-animes.tsv | grep -w $anidbid
 		then
 			get-mal-anilist-id
