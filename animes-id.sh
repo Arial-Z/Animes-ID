@@ -14,16 +14,8 @@ then
 else
     rm $SCRIPT_FOLDER/mapping-needed/*
 fi
-if [ -f $SCRIPT_FOLDER/override/auto-override-animes-id.tsv ]
-then
-	if [ -n "$($SCRIPT_FOLDER/override/auto-override-animes-id.tsv -mtime +7)" ]
-	then
-		rm $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
-		:> $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
-	fi
-else
-	:> $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
-fi
+:> $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
+
 
 function read-dom () {
 	local IFS=\>
