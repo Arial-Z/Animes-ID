@@ -81,7 +81,7 @@ function missing-multiples-movies () {
         while [ $columns_mumbers -le $columns_total_mumbers ];
         do
             current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
-            if ! awk -F"\t" '{print $1}' $SCRIPT_FOLDER/override/override-imdb.tsv | grep -w $current_movie
+            if ! awk -F"\t" '{print $4}' $SCRIPT_FOLDER/override/override.tsv | grep -w $current_movie
             then
                 missing_movies=$(printf "$missing_movies$current_movie," )
             fi
