@@ -29,8 +29,7 @@ function parse-dom () {
 	if [[ $TAG_NAME = "anime" ]]
 	then
 		eval local $ATTRIBUTES
-		id-from-tvdb
-		id-from-imdb
+		id-from-tvdb-imdb
 		malid=""
 		anilistid=""
 	fi
