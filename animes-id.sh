@@ -16,7 +16,7 @@ else
 fi
 if [ -f $SCRIPT_FOLDER/override/auto-override-animes-id.tsv ]
 then
-	if [ -n "$($SCRIPT_FOLDER/override/auto-override-animes-id.tsv -mtime +7)" ]
+	if [[ $(find "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" -mtime +7 -print) ]]
 	then
 		rm $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
 		:> $SCRIPT_FOLDER/override/auto-override-animes-id.tsv
