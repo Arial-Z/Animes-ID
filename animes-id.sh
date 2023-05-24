@@ -68,7 +68,7 @@ function id-from-imdb () {
 		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -w "$imdbid"
 		then
 			get-mal-anilist-id
-			printf "%s\t%S\t%S\t%s\n" "$imdbid" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
+			printf "%s\t%s\t%s\t%s\n" "$imdbid" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 		fi
 	fi
 }
