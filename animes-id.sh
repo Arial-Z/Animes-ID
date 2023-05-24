@@ -6,7 +6,7 @@ if [ ! -d "$SCRIPT_FOLDER/tmp" ]
 then
 	mkdir "$SCRIPT_FOLDER/tmp"
 else
-    rm $SCRIPT_FOLDER/tmp/*
+    rm "$SCRIPT_FOLDER/tmp"/*
 fi
 if [ ! -d "$SCRIPT_FOLDER/mapping-needed" ]
 then
