@@ -12,7 +12,7 @@ if [ ! -d "$SCRIPT_FOLDER/mapping-needed" ]
 then
 	mkdir "$SCRIPT_FOLDER/mapping-needed"
 else
-    rm "$SCRIPT_FOLDER/mapping-needed/*"
+    rm "$SCRIPT_FOLDER/mapping-needed"/*
 fi
 if [ -f "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" ]
 then
