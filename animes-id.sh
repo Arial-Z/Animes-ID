@@ -137,7 +137,7 @@ function get-mal-anilist-id () {
 }
 
 wget -O "$SCRIPT_FOLDER/tmp/anime-list-master.xml" "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
-wget -O "$SCRIPT_FOLDER/tmp/anime-offline-database.json" "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
+wget -O "$SCRIPT_FOLDER/tmp/anime-offline-database.json" "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database-minified.json"
 
 tail -n +2 "$SCRIPT_FOLDER/override/override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
