@@ -54,7 +54,7 @@ function id-from-tvdb () {
 		then
 			episodeoffset=0
 		fi
-		if ! awk -F"\t" '{print $4}' "$SCRIPT_FOLDER/tmp/list-animes.tsv" | grep -w "$anidbid"
+		if ! awk -F"\t" '{print $4}' "$SCRIPT_FOLDER/tmp/list-animes.tsv" | grep -q -w "$anidbid"
 		then
 			get-mal-anilist-id
 			printf "%s\t%s\t%s\t%s\t%s\t%s\n" "$tvdbid" "$defaulttvdbseason" "$episodeoffset" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
@@ -65,7 +65,7 @@ function id-from-imdb () {
 	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
 	then
 		missing-multiples-movies
-		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -w "$imdbid"
+		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -q -w "$imdbid"
 		then
 			get-mal-anilist-id
 			printf "%s\t%s\t%s\t%s\n" "$imdbid" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
@@ -73,7 +73,7 @@ function id-from-imdb () {
 	fi
 }
 function missing-multiples-movies () {
-    if  echo "$imdbid" | grep ,
+    if  echo "$imdbid" | grep -q ,
     then
         columns_total_mumbers=$(echo "$imdbid" | awk -F"," '{print NF}')
         columns_mumbers=1
@@ -81,7 +81,7 @@ function missing-multiples-movies () {
         while [ $columns_mumbers -le "$columns_total_mumbers" ];
         do
             current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
-            if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/override/override-imdb.tsv" | grep -w "$current_movie"
+            if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/override/override-imdb.tsv" | grep -q -w "$current_movie"
             then
                 missing_movies=$(printf "%s," "$missing_movies$current_movie" )
             fi
@@ -97,7 +97,7 @@ function missing-multiples-movies () {
 function get-mal-anilist-id () {
 	malid=""
 	anilistid=""
-	if awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/override-animes-id.tsv" | grep -w "$anidbid"
+	if awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/override-animes-id.tsv" | grep -q -w "$anidbid"
 	then
 		line_anidb=$(awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/override-animes-id.tsv" | grep -w -n "$anidbid" | cut -d : -f 1)
 		malid=$(sed -n "${line_anidb}p" "$SCRIPT_FOLDER/tmp/override-animes-id.tsv" | awk -F"\t" '{print $2}')
@@ -107,21 +107,30 @@ function get-mal-anilist-id () {
 		if [[ -n "$line" ]]
 		then
 			malid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
-			if [[ -z "$malid" ]]
+			if [[ -n "$malid" ]]
 			then
-				printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
-			fi
-			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
-			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
-			then
-				curl 'https://graphql.anilist.co/' \
-				-X POST \
-				-H 'content-type: application/json' \
-				--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json"
-				sleep 0.7s
-				printf "%s\t%s\t%s\n" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
+				anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+				if [[ -z "$anilistid" ]]
+				then
+					curl 'https://graphql.anilist.co/' \
+					-X POST \
+					-H 'content-type: application/json' \
+					--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id startDate { day month year } } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json"
+					sleep 0.7s
+					curl "https://api.jikan.moe/v4/anime/$malid" > "$SCRIPT_FOLDER/tmp/mal-infos.json"
+					sleep 0.7s
+					mal_start_date=$(jq '.data.aired.prop.from| [.year, .month, .day] | @tsv' -r "$SCRIPT_FOLDER/tmp/mal-infos.json" | sed -r 's:\t:/:g')
+					anilist_start_date=$(jq '.data.Media.startDate| [.year, .month, .day] | @tsv' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json" | sed -r 's:\t:/:g')
+					if [[ $mal_start_date == "$anilist_start_date" ]]
+					then
+						anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
+						printf "%s\t%s\t%s\n" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
+					else
+						printf "Missing Anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
+					fi
+				fi
 			else
-				printf "Missing anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
+				printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
 			fi
 		else
 			printf "Anidb : %s missing from manami-project fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anidb.txt"
