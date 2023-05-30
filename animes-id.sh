@@ -126,7 +126,6 @@ function get-mal-anilist-id () {
 					sleep 30
 				else
 					sleep 0.5
-					printf "%s\t\t - Done\n" "$(date +%H:%M:%S)"
 				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
 				if [[ -n "$anilistid" ]]
