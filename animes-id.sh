@@ -125,7 +125,7 @@ function get-mal-anilist-id () {
 					printf "%s - Anilist API limit reached watiting 30s" "$(date +%H:%M:%S)" | tee -a "$LOG"
 					sleep 30
 				else
-					sleep 0.7
+					sleep 0.5
 					printf "%s\t\t - Done\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
 				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
