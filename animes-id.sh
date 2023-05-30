@@ -122,11 +122,11 @@ function get-mal-anilist-id () {
 				rate_limit=$(grep -oP '(?<=x-ratelimit-remaining: )[0-9]+' "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt")
 				if [[ rate_limit -lt 3 ]]
 				then
-					printf "%s - Anilist API limit reached watiting 30s" "$(date +%H:%M:%S)" | tee -a "$LOG"
+					printf "%s - Anilist API limit reached watiting 30s" "$(date +%H:%M:%S)"
 					sleep 30
 				else
 					sleep 0.5
-					printf "%s\t\t - Done\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
+					printf "%s\t\t - Done\n" "$(date +%H:%M:%S)"
 				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
 				if [[ -n "$anilistid" ]]
