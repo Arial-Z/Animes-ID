@@ -27,7 +27,7 @@ fi
 
 function read-dom () {
 	local IFS=\>
-	read -d \< ENTITY CONTENT
+	read -d -r \< ENTITY CONTENT
 	local RET=$?
 	TAG_NAME=${ENTITY%% *}
 	ATTRIBUTES=${ENTITY#* }
