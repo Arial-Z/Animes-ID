@@ -27,7 +27,7 @@ fi
 
 function read-dom () {
 	local IFS=\>
-	read -d -r \< ENTITY CONTENT
+	read -d \< ENTITY CONTENT
 	local RET=$?
 	TAG_NAME=${ENTITY%% *}
 	ATTRIBUTES=${ENTITY#* }
@@ -107,30 +107,25 @@ function get-mal-anilist-id () {
 		if [[ -n "$line" ]]
 		then
 			malid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)")
-			if [[ -n "$malid" ]]
+			if [[ -z "$malid" ]]
 			then
-				anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
-				if [[ -z "$anilistid" ]]
-				then
-					curl 'https://graphql.anilist.co/' \
-					-X POST \
-					-H 'content-type: application/json' \
-					--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id startDate { day month year } } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json"
-					sleep 0.7s
-					curl "https://api.jikan.moe/v4/anime/$malid" > "$SCRIPT_FOLDER/tmp/mal-infos.json"
-					sleep 0.7s
-					mal_start_date=$(jq '.data.aired.prop.from| [.year, .month, .day] | @tsv' -r "$SCRIPT_FOLDER/tmp/mal-infos.json" | sed -r 's:\t:/:g')
-					anilist_start_date=$(jq '.data.Media.startDate| [.year, .month, .day] | @tsv' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json" | sed -r 's:\t:/:g')
-					if [[ $mal_start_date == "$anilist_start_date" ]]
-					then
-						anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
-						printf "%s\t%s\t%s\n" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
-					else
-						printf "Missing Anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
-					fi
-				fi
-			else
 				printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
+			fi
+			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+			if [[ -z "$anilistid" ]]
+			then
+				curl 'https://graphql.anilist.co/' \
+				-X POST \
+				-H 'content-type: application/json' \
+				--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id startDate } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json"
+				sleep 0.7s
+				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
+				if [[ -n "$anilistid" ]]
+				then
+					printf "%s\t%s\t%s\n" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
+				else
+					printf "Missing Anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
+				fi
 			fi
 		else
 			printf "Anidb : %s missing from manami-project fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anidb.txt"
