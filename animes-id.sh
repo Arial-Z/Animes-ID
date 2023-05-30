@@ -112,13 +112,22 @@ function get-mal-anilist-id () {
 				printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
 			fi
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
-			if [[ -z "$anilistid" ]]
+			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
 			then
-				curl 'https://graphql.anilist.co/' \
+				curl -s 'https://graphql.anilist.co/' \
 				-X POST \
 				-H 'content-type: application/json' \
-				--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id startDate } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json"
-				sleep 0.7s
+				--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id startDate } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json" -D "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt"
+				rate_limit=0
+				rate_limit=$(grep -oP '(?<=x-ratelimit-remaining: )[0-9]+' "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt")
+				if [[ rate_limit -lt 3 ]]
+				then
+					printf "%s - Anilist API limit reached watiting 30s" "$(date +%H:%M:%S)" | tee -a "$LOG"
+					sleep 30
+				else
+					sleep 0.7
+					printf "%s\t\t - Done\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
+				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
 				if [[ -n "$anilistid" ]]
 				then
