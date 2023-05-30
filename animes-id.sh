@@ -128,7 +128,7 @@ function get-mal-anilist-id () {
 					sleep 0.5
 				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
-				if [[ -n "$anilistid" ]]
+				if [[ -n "$anilistid" ]] && [[ "$anilistid" != "null" ]]
 				then
 					printf "%s\t%s\t%s\n" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
 				else
