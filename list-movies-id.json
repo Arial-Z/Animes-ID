@@ -420,6 +420,126 @@
     "anilist_id": "162291"
   },
   {
+    "imdb_id": "tt4054952",
+    "anidb_id": "10755",
+    "mal_id": "25537",
+    "anilist_id": "20791"
+  },
+  {
+    "imdb_id": "tt8091892",
+    "anidb_id": "10755",
+    "mal_id": "33049",
+    "anilist_id": "21718"
+  },
+  {
+    "imdb_id": "tt8092118",
+    "anidb_id": "10755",
+    "mal_id": "33050",
+    "anilist_id": "21719"
+  },
+  {
+    "imdb_id": "tt6467156",
+    "anidb_id": "4169",
+    "mal_id": "2269",
+    "anilist_id": "2269"
+  },
+  {
+    "imdb_id": "tt5911148",
+    "anidb_id": "4168",
+    "mal_id": "2269",
+    "anilist_id": "2269"
+  },
+  {
+    "imdb_id": "tt5914194",
+    "anidb_id": "4165",
+    "mal_id": "2269",
+    "anilist_id": "2269"
+  },
+  {
+    "imdb_id": "tt3198652",
+    "anidb_id": "9299",
+    "mal_id": "14407",
+    "anilist_id": "14407"
+  },
+  {
+    "imdb_id": "tt3898504",
+    "anidb_id": "9299",
+    "mal_id": "21473",
+    "anilist_id": "20736"
+  },
+  {
+    "imdb_id": "tt4331400",
+    "anidb_id": "9299",
+    "mal_id": "24543",
+    "anilist_id": "20737"
+  },
+  {
+    "imdb_id": "tt5463052",
+    "anidb_id": "9299",
+    "mal_id": "31149",
+    "anilist_id": "21248"
+  },
+  {
+    "imdb_id": "tt3355694",
+    "anidb_id": "8146",
+    "mal_id": "2994",
+    "anilist_id": "2994"
+  },
+  {
+    "imdb_id": "tt3355698",
+    "anidb_id": "8147",
+    "mal_id": "2994",
+    "anilist_id": "2994"
+  },
+  {
+    "imdb_id": "tt10635042",
+    "anidb_id": "12754",
+    "mal_id": "40024",
+    "anilist_id": "103713"
+  },
+  {
+    "imdb_id": "tt10443844",
+    "anidb_id": "13894",
+    "mal_id": "37440",
+    "anilist_id": "102649"
+  },
+  {
+    "imdb_id": "tt11078434",
+    "anidb_id": "13894",
+    "mal_id": "37441",
+    "anilist_id": "104382"
+  },
+  {
+    "imdb_id": "tt11078522",
+    "anidb_id": "13894",
+    "mal_id": "37442",
+    "anilist_id": "104990"
+  },
+  {
+    "imdb_id": "tt2205948",
+    "anidb_id": "8778",
+    "mal_id": "11977",
+    "anilist_id": "11977"
+  },
+  {
+    "imdb_id": "tt2194724",
+    "anidb_id": "8778",
+    "mal_id": "11979",
+    "anilist_id": "11979"
+  },
+  {
+    "imdb_id": "tt2457282",
+    "anidb_id": "8778",
+    "mal_id": "11981",
+    "anilist_id": "11981"
+  },
+  {
+    "imdb_id": "tt3392330",
+    "anidb_id": "9125",
+    "mal_id": "17679",
+    "anilist_id": "17677"
+  },
+  {
     "imdb_id": "tt0119698",
     "anidb_id": "7",
     "mal_id": "164",
@@ -3894,12 +4014,6 @@
     "anilist_id": "2236"
   },
   {
-    "imdb_id": "tt5914194",
-    "anidb_id": "4165",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
     "imdb_id": "tt0159510",
     "anidb_id": "4166",
     "mal_id": "1091",
@@ -3910,18 +4024,6 @@
     "anidb_id": "4167",
     "mal_id": "1092",
     "anilist_id": "1092"
-  },
-  {
-    "imdb_id": "tt5911148",
-    "anidb_id": "4168",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
-    "imdb_id": "tt6467156",
-    "anidb_id": "4169",
-    "mal_id": "",
-    "anilist_id": ""
   },
   {
     "imdb_id": "tt1989450",
@@ -7164,18 +7266,6 @@
     "anilist_id": "10029"
   },
   {
-    "imdb_id": "tt3355694",
-    "anidb_id": "8146",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
-    "imdb_id": "tt3355698",
-    "anidb_id": "8147",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
     "imdb_id": "tt1920885",
     "anidb_id": "8156",
     "mal_id": "10259",
@@ -7524,12 +7614,6 @@
     "anilist_id": "12001"
   },
   {
-    "imdb_id": "tt2205948",
-    "anidb_id": "8778",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
     "imdb_id": "tt2368717",
     "anidb_id": "8780",
     "mal_id": "12499",
@@ -7668,12 +7752,6 @@
     "anilist_id": "13391"
   },
   {
-    "imdb_id": "tt3392330",
-    "anidb_id": "9125",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
     "imdb_id": "tt2193271",
     "anidb_id": "9142",
     "mal_id": "18491",
@@ -7738,12 +7816,6 @@
     "anidb_id": "9294",
     "mal_id": "14669",
     "anilist_id": "14669"
-  },
-  {
-    "imdb_id": "tt3198652",
-    "anidb_id": "9299",
-    "mal_id": "",
-    "anilist_id": ""
   },
   {
     "imdb_id": "tt2983564",
@@ -8176,12 +8248,6 @@
     "anidb_id": "10742",
     "mal_id": "25389",
     "anilist_id": "20778"
-  },
-  {
-    "imdb_id": "tt4054952",
-    "anidb_id": "10755",
-    "mal_id": "",
-    "anilist_id": ""
   },
   {
     "imdb_id": "tt4020248",
@@ -8622,12 +8688,6 @@
     "anilist_id": "98249"
   },
   {
-    "imdb_id": "tt10635042",
-    "anidb_id": "12754",
-    "mal_id": "",
-    "anilist_id": ""
-  },
-  {
     "imdb_id": "tt8391976",
     "anidb_id": "12837",
     "mal_id": "34944",
@@ -8890,12 +8950,6 @@
     "anidb_id": "13891",
     "mal_id": "37436",
     "anilist_id": "102835"
-  },
-  {
-    "imdb_id": "tt10443844",
-    "anidb_id": "13894",
-    "mal_id": "",
-    "anilist_id": ""
   },
   {
     "imdb_id": "tt8816016",
