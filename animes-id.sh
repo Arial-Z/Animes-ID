@@ -5,25 +5,22 @@ SCRIPT_FOLDER=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 if [ ! -d "$SCRIPT_FOLDER/tmp" ]
 then
 	mkdir "$SCRIPT_FOLDER/tmp"
-else
-    rm "$SCRIPT_FOLDER/tmp"/*
 fi
 if [ ! -d "$SCRIPT_FOLDER/mapping-needed" ]
 then
 	mkdir "$SCRIPT_FOLDER/mapping-needed"
-else
-    rm "$SCRIPT_FOLDER/mapping-needed"/*
 fi
 if [ -f "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" ]
 then
 	if [[ $(find "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" -mtime +7 -print) ]]
 	then
-		rm "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
 		:> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
 	fi
 else
 	:> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
 fi
+:> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
+:> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 
 function read-dom () {
 	local IFS=\>
@@ -64,12 +61,12 @@ function id-from-imdb () {
 	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
 	then
 		#missing-multiples-movies
-		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -q -w "$imdbid"
-		then
-			get-mal-anilist-id
+		#if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -q -w "$imdbid"
+		#then
+			#get-mal-anilist-id
 			#check-null-id
-			printf "%s\t%s\t%s\t%s\n" "$imdbid" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
-		fi
+			printf "%s\t%s\n" "$imdbid" "$anidbid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
+		#fi
 	fi
 }
 function check-null-id () {
