@@ -26,6 +26,8 @@ else
 fi
 
 function read-dom () {
+	tvdbid=""
+	imdbid=""
 	local IFS=\>
 	read -d \< ENTITY CONTENT
 	local RET=$?
