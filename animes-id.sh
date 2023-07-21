@@ -26,9 +26,6 @@ else
 fi
 
 function read-dom () {
-	tvdbid=""
-	imdbid=""
-	anidbid=""
 	local IFS=\>
 	read -d \< ENTITY CONTENT
 	local RET=$?
@@ -66,7 +63,7 @@ function id-from-tvdb () {
 function id-from-imdb () {
 	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
 	then
-		missing-multiples-movies
+		#missing-multiples-movies
 		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -q -w "$imdbid"
 		then
 			get-mal-anilist-id
@@ -141,6 +138,10 @@ function get-mal-anilist-id () {
 				printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
 			fi
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)")
+			if [[ -z "$anilistid" ]]
+			then
+				printf "Missing Anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
+			fi
 			# if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
 			# then
 			# 	curl 'https://graphql.anilist.co/' \
@@ -174,7 +175,7 @@ wget -O "$SCRIPT_FOLDER/tmp/anime-list-master.xml" "https://raw.githubuserconten
 wget -O "$SCRIPT_FOLDER/tmp/anime-offline-database.json" "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
 
 tail -n +2 "$SCRIPT_FOLDER/override/override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
-cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
+cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" >> "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 tail -n +2 "$SCRIPT_FOLDER/override/override-tvdb.tsv" > "$SCRIPT_FOLDER/tmp/list-animes.tsv"
 tail -n +2 "$SCRIPT_FOLDER/override/override-imdb.tsv" > "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 
