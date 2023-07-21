@@ -26,8 +26,6 @@ else
 fi
 
 function read-dom () {
-	tvdbid=""
-	imdbid=""
 	local IFS=\>
 	read -d \< ENTITY CONTENT
 	local RET=$?
@@ -41,6 +39,11 @@ function parse-dom () {
 		eval local "$ATTRIBUTES"
 		id-from-tvdb
 		id-from-imdb
+		tvdbid=""
+		imdbid=""
+		anidbid=""
+		malid=""
+		anilistid=""
 	fi
 }
 function id-from-tvdb () {
@@ -57,7 +60,7 @@ function id-from-tvdb () {
 		if ! awk -F"\t" '{print $4}' "$SCRIPT_FOLDER/tmp/list-animes.tsv" | grep -q -w "$anidbid"
 		then
 			get-mal-anilist-id
-			check-null-id
+			#check-null-id
 			printf "%s\t%s\t%s\t%s\t%s\t%s\n" "$tvdbid" "$defaulttvdbseason" "$episodeoffset" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
 		fi
 	fi
@@ -69,7 +72,7 @@ function id-from-imdb () {
 		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -q -w "$imdbid"
 		then
 			get-mal-anilist-id
-			check-null-id
+			#check-null-id
 			printf "%s\t%s\t%s\t%s\n" "$imdbid" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 		fi
 	fi
