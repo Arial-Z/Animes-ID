@@ -26,6 +26,8 @@ else
 fi
 
 function read-dom () {
+	tvdbid=""
+	imdbid=""
 	local IFS=\>
 	read -d \< ENTITY CONTENT
 	local RET=$?
@@ -39,11 +41,6 @@ function parse-dom () {
 		eval local "$ATTRIBUTES"
 		id-from-tvdb
 		id-from-imdb
-		malid=""
-		anilistid=""
-        anidbid=""
-        tvdbid=""
-        imdbid=""
 	fi
 }
 function id-from-tvdb () {
@@ -60,6 +57,7 @@ function id-from-tvdb () {
 		if ! awk -F"\t" '{print $4}' "$SCRIPT_FOLDER/tmp/list-animes.tsv" | grep -q -w "$anidbid"
 		then
 			get-mal-anilist-id
+			check-null-id
 			printf "%s\t%s\t%s\t%s\t%s\t%s\n" "$tvdbid" "$defaulttvdbseason" "$episodeoffset" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
 		fi
 	fi
@@ -67,13 +65,40 @@ function id-from-tvdb () {
 function id-from-imdb () {
 	if [[ -n "$imdbid" ]] && [[ $imdbid != "unknown" ]]
 	then
-#		missing-multiples-movies
+		missing-multiples-movies
 		if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/tmp/list-movies.tsv" | grep -q -w "$imdbid"
 		then
 			get-mal-anilist-id
+			check-null-id
 			printf "%s\t%s\t%s\t%s\n" "$imdbid" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 		fi
 	fi
+}
+function check-null-id () {
+	loop=0
+	for id in $tvdbid $imdbid $anidbid $malid $anilistid
+	do	
+		if [[ $id == "null" ]]
+		then
+			if [ $loop -eq 1 ]
+			then
+				tvbid=""
+			elif [ $loop -eq 2 ]
+			then
+				imdbid=""
+			elif [ $loop -eq 3 ]
+			then
+				anidbid=""
+			elif [ $loop -eq 4 ]
+			then
+				malid=""
+			elif [ $loop -eq 5 ]
+			then
+				anilistid=""
+			fi
+		fi
+		loop++
+	done
 }
 function missing-multiples-movies () {
     if  echo "$imdbid" | grep -q ,
