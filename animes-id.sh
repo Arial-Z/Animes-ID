@@ -97,7 +97,7 @@ function check-null-id () {
 				anilistid=""
 			fi
 		fi
-		loop++
+		((loop++))
 	done
 }
 function missing-multiples-movies () {
