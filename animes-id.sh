@@ -75,7 +75,7 @@ function id-from-imdb () {
 	fi
 }
 function check-null-id () {
-	loop=0
+	loop=1
 	for id in $tvdbid $imdbid $anidbid $malid $anilistid
 	do	
 		if [[ $id == "null" ]]
