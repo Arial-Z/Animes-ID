@@ -26,6 +26,9 @@ else
 fi
 
 function read-dom () {
+	tvdbid=""
+	imdbid=""
+	anidbid=""
 	local IFS=\>
 	read -d \< ENTITY CONTENT
 	local RET=$?
@@ -39,11 +42,6 @@ function parse-dom () {
 		eval local "$ATTRIBUTES"
 		id-from-tvdb
 		id-from-imdb
-		tvdbid=""
-		imdbid=""
-		anidbid=""
-		malid=""
-		anilistid=""
 	fi
 }
 function id-from-tvdb () {
