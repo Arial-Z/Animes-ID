@@ -6846,6 +6846,12 @@
     "anilist_id": "147928"
   },
   {
+    "imdb_id": "tt15436162",
+    "anidb_id": "7323",
+    "mal_id": "4886",
+    "anilist_id": "4886"
+  },
+  {
     "imdb_id": "tt1407273",
     "anidb_id": "7331",
     "mal_id": "16434",
@@ -9796,5 +9802,11 @@
     "anidb_id": "17862",
     "mal_id": "54870",
     "anilist_id": "161474"
+  },
+  {
+    "imdb_id": "tt27551813",
+    "anidb_id": "18022",
+    "mal_id": "55016",
+    "anilist_id": "164117"
   }
 ]
