@@ -147,7 +147,7 @@ while [ $wait_time -lt 4 ];
 do
 	printf "%s - Downloading anime-lists mapping\n" "$(date +%H:%M:%S)"
 	curl -s "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml" > "$SCRIPT_FOLDER/tmp/anime-list-master.xml"
-	size=$(du -b "$SCRIPT_FOLDER/tmp/list-animes-id.json" | awk '{ print $1 }')
+	size=$(du -b "$SCRIPT_FOLDER/tmp/anime-list-master.xml" | awk '{ print $1 }')
 	((wait_time++))
 	if [[ $size -gt 1000 ]]
 	then
@@ -167,7 +167,7 @@ while [ $wait_time -lt 4 ];
 do
 	printf "%s - Downloading manami-project mapping\n" "$(date +%H:%M:%S)"
 	curl -s "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json" > "$SCRIPT_FOLDER/tmp/anime-offline-database.json"
-	size=$(du -b "$SCRIPT_FOLDER/tmp/list-animes-id.json" | awk '{ print $1 }')
+	size=$(du -b "$SCRIPT_FOLDER/tmp/anime-offline-database.json" | awk '{ print $1 }')
 	((wait_time++))
 	if [[ $size -gt 1000 ]]
 	then
