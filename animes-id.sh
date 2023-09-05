@@ -142,8 +142,45 @@ function get-mal-anilist-id () {
 	fi
 }
 
-wget -O "$SCRIPT_FOLDER/tmp/anime-list-master.xml" "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml"
-wget -O "$SCRIPT_FOLDER/tmp/anime-offline-database.json" "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json"
+wait_time=0
+while [ $wait_time -lt 4 ];
+do
+	printf "%s - Downloading anime-lists mapping\n" "$(date +%H:%M:%S)"
+	curl -s "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml" > "$SCRIPT_FOLDER/tmp/anime-list-master.xml"
+	size=$(du -b "$SCRIPT_FOLDER/tmp/list-animes-id.json" | awk '{ print $1 }')
+	((wait_time++))
+	if [[ $size -gt 1000 ]]
+	then
+		printf "%s - Done\n\n" "$(date +%H:%M:%S)"
+		break
+	fi
+	if [[ $wait_time == 4 ]]
+	then
+		printf "%s - Error can't download anime ID mapping file, exiting\n" "$(date +%H:%M:%S)"
+		exit 1
+	fi
+	sleep 30
+done
+
+wait_time=0
+while [ $wait_time -lt 4 ];
+do
+	printf "%s - Downloading manami-project mapping\n" "$(date +%H:%M:%S)"
+	curl -s "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json" > "$SCRIPT_FOLDER/tmp/anime-offline-database.json"
+	size=$(du -b "$SCRIPT_FOLDER/tmp/list-animes-id.json" | awk '{ print $1 }')
+	((wait_time++))
+	if [[ $size -gt 1000 ]]
+	then
+		printf "%s - Done\n\n" "$(date +%H:%M:%S)"
+		break
+	fi
+	if [[ $wait_time == 4 ]]
+	then
+		printf "%s - Error can't download anime ID mapping file, exiting\n" "$(date +%H:%M:%S)"
+		exit 1
+	fi
+	sleep 30
+done
 
 tail -n +2 "$SCRIPT_FOLDER/override/override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" >> "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
