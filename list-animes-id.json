@@ -52542,5 +52542,13 @@
     "anidb_id": "18181",
     "mal_id": "56566",
     "anilist_id": "165159"
+  },
+  {
+    "tvdb_id": "388672",
+    "tvdb_season": "2",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18218",
+    "mal_id": "",
+    "anilist_id": ""
   }
 ]
