@@ -29981,7 +29981,7 @@
     "tvdb_epoffset": "0",
     "anidb_id": "9348",
     "mal_id": "15061",
-    "anilist_id": ""
+    "anilist_id": "15061"
   },
   {
     "tvdb_id": "271988",
@@ -42470,6 +42470,14 @@
     "anidb_id": "13797",
     "mal_id": "37311",
     "anilist_id": "104156"
+  },
+  {
+    "tvdb_id": "345341",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "13806",
+    "mal_id": "",
+    "anilist_id": ""
   },
   {
     "tvdb_id": "275582",
