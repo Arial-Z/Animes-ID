@@ -188,12 +188,13 @@ cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" >> "$SCRIPT_FOLDER/tmp
 while IFS=$'\t' read -r tvdb_id tvdb_season tvdb_epoffset anidb_id mal_id anilist_id notes
 do
 	printf "%s\t%s\t%s\t%s\t%s\t%s\n" "$tvdb_id" "$tvdb_season" "$tvdb_epoffset" "$anidb_id" "$mal_id" "$anilist_id" >> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
-done < "$SCRIPT_FOLDER/override/override-tvdb.tsv"
+done < <(tail -n +2 "$SCRIPT_FOLDER/override/override-tvdb.tsv")
+
 :> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 while IFS=$'\t' read -r imdb_id anidb_id mal_id anilist_id notes
 do
 	printf "%s\t%s\t%s\t%s\n" "$imdb_id" "$anidb_id" "$mal_id" "$anilist_id" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
-done < "$SCRIPT_FOLDER/override/override-imdb.tsv"
+done < <(tail -n +2 "$SCRIPT_FOLDER/override/override-imdb.tsv")
 
 jq ".data[].sources| @tsv" -r "$SCRIPT_FOLDER/tmp/anime-offline-database.json" > "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv"
 
