@@ -185,14 +185,24 @@ done
 tail -n +2 "$SCRIPT_FOLDER/override/override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" >> "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 :> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
-while IFS=$'\t' read -r tvdb_id tvdb_season tvdb_epoffset anidb_id mal_id anilist_id notes
+while IFS= read -r line
 do
+	tvdb_id=$(printf "%s" "$line" | awk -F"\t" '{print $1}')
+	tvdb_season=$(printf "%s" "$line" | awk -F"\t" '{print $2}')
+	tvdb_epoffset=$(printf "%s" "$line" | awk -F"\t" '{print $3}')
+	anidb_id=$(printf "%s" "$line" | awk -F"\t" '{print $4}')
+	mal_id=$(printf "%s" "$line" | awk -F"\t" '{print $5}')
+	anilist_id=$(printf "%s" "$line" | awk -F"\t" '{print $6}')
 	printf "%s\t%s\t%s\t%s\t%s\t%s\n" "$tvdb_id" "$tvdb_season" "$tvdb_epoffset" "$anidb_id" "$mal_id" "$anilist_id" >> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
 done < <(tail -n +2 "$SCRIPT_FOLDER/override/override-tvdb.tsv")
 
 :> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
-while IFS=$'\t' read -r imdb_id anidb_id mal_id anilist_id notes
+while IFS= read -r line
 do
+	imdb_id=$(printf "%s" "$line" | awk -F"\t" '{print $1}')
+	anidb_id=$(printf "%s" "$line" | awk -F"\t" '{print $2}')
+	mal_id=$(printf "%s" "$line" | awk -F"\t" '{print $3}')
+	anilist_id=$(printf "%s" "$line" | awk -F"\t" '{print $4}')
 	printf "%s\t%s\t%s\t%s\n" "$imdb_id" "$anidb_id" "$mal_id" "$anilist_id" >> "$SCRIPT_FOLDER/tmp/list-movies.tsv"
 done < <(tail -n +2 "$SCRIPT_FOLDER/override/override-imdb.tsv")
 
