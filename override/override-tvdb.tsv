@@ -1,6 +1,6 @@
 tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
-343237	2	0	13473		100780	Legend of the Galactic Heroes: Die Neue These
-259675	3	0		40389	112019	Star Blazers 2199
+343237	2	0	13473	""	100780	Legend of the Galactic Heroes: Die Neue These
+259675	3	0	""	40389	112019	Star Blazers 2199
 245821	1	0	7989	9539	9539	Cardfight!! Vanguard
 245821	2	0	8974	13145	13145	Cardfight!! Vanguard
 245821	3	0	9437	15611	15611	Cardfight!! Vanguard
