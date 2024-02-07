@@ -1,5 +1,11 @@
 [
   {
+    "imdb_id": "imdb_id",
+    "anidb_id": "anidb_id",
+    "mal_id": "mal_id",
+    "anilist_id": "anilist_id"
+  },
+  {
     "imdb_id": "tt8100900",
     "anidb_id": "12567",
     "mal_id": "34438",
@@ -9900,6 +9906,18 @@
     "anilist_id": "145739"
   },
   {
+    "imdb_id": "tt19861160",
+    "anidb_id": "17343",
+    "mal_id": "51716",
+    "anilist_id": "148149"
+  },
+  {
+    "imdb_id": "tt21105546",
+    "anidb_id": "17474",
+    "mal_id": "52186",
+    "anilist_id": "151300"
+  },
+  {
     "imdb_id": "tt23770418",
     "anidb_id": "17477",
     "mal_id": "52198",
@@ -9940,6 +9958,12 @@
     "anidb_id": "17862",
     "mal_id": "54870",
     "anilist_id": "161474"
+  },
+  {
+    "imdb_id": "tt27187061",
+    "anidb_id": "17890",
+    "mal_id": "54650",
+    "anilist_id": "159429"
   },
   {
     "imdb_id": "tt27551813",

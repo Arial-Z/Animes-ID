@@ -1,19 +1,27 @@
 [
   {
+    "tvdb_id": "tvdb_id",
+    "tvdb_season": "tvdb_season",
+    "tvdb_epoffset": "tvdb_epoffset",
+    "anidb_id": "anidb_id",
+    "mal_id": "mal_id",
+    "anilist_id": "anilist_id"
+  },
+  {
     "tvdb_id": "343237",
     "tvdb_season": "2",
     "tvdb_epoffset": "0",
     "anidb_id": "13473",
-    "mal_id": "",
-    "anilist_id": "100780"
+    "mal_id": "100780",
+    "anilist_id": "Legend of the Galactic Heroes: Die Neue These"
   },
   {
     "tvdb_id": "259675",
     "tvdb_season": "3",
     "tvdb_epoffset": "0",
-    "anidb_id": "",
-    "mal_id": "40389",
-    "anilist_id": "112019"
+    "anidb_id": "40389",
+    "mal_id": "112019",
+    "anilist_id": "Star Blazers 2199"
   },
   {
     "tvdb_id": "245821",
@@ -168,12 +176,12 @@
     "anilist_id": "14751"
   },
   {
-    "tvdb_id": "70668",
-    "tvdb_season": "-1",
+    "tvdb_id": "72025",
+    "tvdb_season": "1",
     "tvdb_epoffset": "0",
-    "anidb_id": "102",
-    "mal_id": "232",
-    "anilist_id": "23272025"
+    "anidb_id": "1",
+    "mal_id": "290",
+    "anilist_id": "290"
   },
   {
     "tvdb_id": "70973",
@@ -902,6 +910,14 @@
     "anidb_id": "101",
     "mal_id": "1775",
     "anilist_id": "1775"
+  },
+  {
+    "tvdb_id": "70668",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "102",
+    "mal_id": "232",
+    "anilist_id": "232"
   },
   {
     "tvdb_id": "74462",
@@ -36336,8 +36352,8 @@
     "anilist_id": "21275"
   },
   {
-    "tvdb_id": "279980",
-    "tvdb_season": "2",
+    "tvdb_id": "303145",
+    "tvdb_season": "1",
     "tvdb_epoffset": "0",
     "anidb_id": "11459",
     "mal_id": "28537",
@@ -53240,6 +53256,14 @@
     "anilist_id": "169935"
   },
   {
+    "tvdb_id": "245821",
+    "tvdb_season": "16",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18248",
+    "mal_id": "54142",
+    "anilist_id": "164204"
+  },
+  {
     "tvdb_id": "294002",
     "tvdb_season": "0",
     "tvdb_epoffset": "59",
@@ -53286,5 +53310,21 @@
     "anidb_id": "18336",
     "mal_id": "57592",
     "anilist_id": "172019"
+  },
+  {
+    "tvdb_id": "271591",
+    "tvdb_season": "12",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18402",
+    "mal_id": "57180",
+    "anilist_id": "170953"
+  },
+  {
+    "tvdb_id": "444655",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18409",
+    "mal_id": "57699",
+    "anilist_id": "122519"
   }
 ]
