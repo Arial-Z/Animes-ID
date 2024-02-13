@@ -1284,8 +1284,8 @@
     "tvdb_season": "1",
     "tvdb_epoffset": "0",
     "anidb_id": "150",
-    "mal_id": "1060",
-    "anilist_id": "1060"
+    "mal_id": "",
+    "anilist_id": ""
   },
   {
     "tvdb_id": "120071",
@@ -38445,7 +38445,7 @@
     "tvdb_epoffset": "0",
     "anidb_id": "12119",
     "mal_id": "31499",
-    "anilist_id": "102598150"
+    "anilist_id": "102598"
   },
   {
     "tvdb_id": "272129",
