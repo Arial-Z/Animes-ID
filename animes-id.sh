@@ -122,7 +122,7 @@ function get-mal-anilist-id () {
 				rate_limit=$(grep -oP '(?<=x-ratelimit-remaining: )[0-9]+' "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt")
 				if [[ -z $rate_limit ]]
 				then
-					printf "%s - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
+					printf "%s - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)"
 					sleep 61
 					curl 'https://graphql.anilist.co/' \
 					-X POST \
