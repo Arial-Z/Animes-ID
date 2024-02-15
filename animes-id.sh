@@ -133,7 +133,7 @@ function get-mal-anilist-id () {
 					printf "%s - Anilist API limit reached watiting 30s\n" "$(date +%H:%M:%S)"
 					sleep 30
 				else
-					sleep 0.75
+					sleep 0.8
 				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
 				if [[ -n "$anilistid" ]] && [[ "$anilistid" != "null" ]]
