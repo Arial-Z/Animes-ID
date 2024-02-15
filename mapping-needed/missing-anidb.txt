@@ -17,9 +17,13 @@ Anidb : 3289 missing from manami-project fix needed
 Anidb : 3358 missing from manami-project fix needed
 Anidb : 3434 missing from manami-project fix needed
 Anidb : 3683 missing from manami-project fix needed
+Anidb : 4579 missing from manami-project fix needed
+Anidb : 5043 missing from manami-project fix needed
+Anidb : 5931 missing from manami-project fix needed
+Anidb : 7042 missing from manami-project fix needed
+Anidb : 7577 missing from manami-project fix needed
 Anidb : 12760 missing from manami-project fix needed
 Anidb : 13192 missing from manami-project fix needed
-Anidb : 4579 missing from manami-project fix needed
 Anidb : 13402 missing from manami-project fix needed
 Anidb : 13597 missing from manami-project fix needed
 Anidb : 13806 missing from manami-project fix needed
@@ -28,8 +32,6 @@ Anidb : 13972 missing from manami-project fix needed
 Anidb : 14112 missing from manami-project fix needed
 Anidb : 14528 missing from manami-project fix needed
 Anidb : 14698 missing from manami-project fix needed
-Anidb : 5043 missing from manami-project fix needed
-Anidb : 5931 missing from manami-project fix needed
 Anidb : 14924 missing from manami-project fix needed
 Anidb : 15274 missing from manami-project fix needed
 Anidb : 15403 missing from manami-project fix needed
@@ -48,5 +50,3 @@ Anidb : 17566 missing from manami-project fix needed
 Anidb : 17647 missing from manami-project fix needed
 Anidb : 18159 missing from manami-project fix needed
 Anidb : 18303 missing from manami-project fix needed
-Anidb : 7042 missing from manami-project fix needed
-Anidb : 7577 missing from manami-project fix needed
