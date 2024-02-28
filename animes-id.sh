@@ -129,6 +129,7 @@ function get-mal-anilist-id () {
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
 				if [[ -n "$anilistid" ]] && [[ "$anilistid" == "null" ]]
 				then
+					anilistid=""
 					printf "Missing Anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
 				fi
 			fi
@@ -138,6 +139,7 @@ function get-mal-anilist-id () {
 	fi
 }
 
+printf "%s - Starting script\n\n" "$(date +%H:%M:%S)"
 wait_time=0
 while [ $wait_time -lt 4 ];
 do
@@ -207,6 +209,8 @@ while read-dom
 do
 	parse-dom
 done < "$SCRIPT_FOLDER/tmp/anime-list-master.xml"
+printf "%s - Done\n" "$(date +%H:%M:%S)"
+printf "%s - Exporting animes lists\n" "$(date +%H:%M:%S)"
 
 < "$SCRIPT_FOLDER/tmp/list-animes.tsv" jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
 	map({"tvdb_id": .[0],
@@ -221,3 +225,6 @@ done < "$SCRIPT_FOLDER/tmp/anime-list-master.xml"
 	"anidb_id": .[1],
 	"mal_id": .[2],
 	"anilist_id": .[3]})' > "$SCRIPT_FOLDER/list-movies-id.json"
+
+printf "%s - Done\n" "$(date +%H:%M:%S)"
+printf "%s - Run finished\n" "$(date +%H:%M:%S)" 
