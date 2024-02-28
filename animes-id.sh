@@ -104,7 +104,7 @@ function get-mal-anilist-id () {
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
 			then
-				printf "%s\t- Downloading anilist data for MAL : %s\n" "$(date +%H:%M:%S)" "$malid"
+				printf "%s\t - Downloading anilist data for MAL : %s\n" "$(date +%H:%M:%S)" "$malid"
 				curl -s 'https://graphql.anilist.co/' \
 				-X POST \
 				-H 'content-type: application/json' \
@@ -113,7 +113,7 @@ function get-mal-anilist-id () {
 				rate_limit=$(grep -oP '(?<=x-ratelimit-remaining: )[0-9]+' "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt")
 				if [[ -z $rate_limit ]]
 				then
-					printf "%s - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)"
+					printf "%s\t - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)"
 					sleep 61
 					curl -s 'https://graphql.anilist.co/' \
 					-X POST \
