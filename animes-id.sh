@@ -104,7 +104,7 @@ function get-mal-anilist-id () {
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
 			then
-				printf "%s\t- Downloading data from anilist for MAL : %s\n" "$(date +%H:%M:%S)" "$malid"
+				printf "%s\t- Downloading anilist data for MAL : %s\n" "$(date +%H:%M:%S)" "$malid"
 				curl -s 'https://graphql.anilist.co/' \
 				-X POST \
 				-H 'content-type: application/json' \
