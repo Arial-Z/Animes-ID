@@ -14,16 +14,6 @@ then
 else
     rm "$SCRIPT_FOLDER/mapping-needed"/*
 fi
-if [ -f "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" ]
-then
-	if [[ $(find "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" -mtime +7 -print) ]]
-	then
-		rm "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
-		:> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
-	fi
-else
-	:> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
-fi
 
 function read-dom () {
 	local IFS=\>
@@ -114,7 +104,8 @@ function get-mal-anilist-id () {
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
 			then
-				curl 'https://graphql.anilist.co/' \
+				printf "%s\t- Downloading data for anilist : %s\n" "$(date +%H:%M:%S)" "$anilist_id"
+				curl -s 'https://graphql.anilist.co/' \
 				-X POST \
 				-H 'content-type: application/json' \
 				--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json" -D "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt"
@@ -124,7 +115,7 @@ function get-mal-anilist-id () {
 				then
 					printf "%s - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)"
 					sleep 61
-					curl 'https://graphql.anilist.co/' \
+					curl -s 'https://graphql.anilist.co/' \
 					-X POST \
 					-H 'content-type: application/json' \
 					--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json" -D "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt"
@@ -136,11 +127,8 @@ function get-mal-anilist-id () {
 					sleep 0.8
 				fi
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
-				if [[ -n "$anilistid" ]] && [[ "$anilistid" != "null" ]]
+				if [[ -n "$anilistid" ]] && [[ "$anilistid" == "null" ]]
 				then
-					printf "%s\t%s\t%s\n" "$anidbid" "$malid" "$anilistid" >> "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv"
-				else
-					anilistid=""
 					printf "Missing Anilist id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-anilist.txt"
 				fi
 			fi
@@ -191,7 +179,6 @@ do
 done
 
 tail -n +2 "$SCRIPT_FOLDER/override/override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
-cat "$SCRIPT_FOLDER/override/auto-override-animes-id.tsv" >> "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 :> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
 while IFS= read -r line
 do
@@ -215,7 +202,7 @@ do
 done < <(tail -n +2 "$SCRIPT_FOLDER/override/override-imdb.tsv")
 
 jq ".data[].sources| @tsv" -r "$SCRIPT_FOLDER/tmp/anime-offline-database.json" > "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv"
-
+printf "%s - Starting animes mapping\n" "$(date +%H:%M:%S)"
 while read-dom
 do
 	parse-dom
