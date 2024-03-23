@@ -104,28 +104,35 @@ function get-mal-anilist-id () {
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
 			then
-				printf "%s\t - Downloading anilist data for MAL : %s\n" "$(date +%H:%M:%S)" "$malid"
-				curl -s 'https://graphql.anilist.co/' \
-				-X POST \
-				-H 'content-type: application/json' \
-				--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json" -D "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt"
-				rate_limit=0
-				rate_limit=$(grep -oP '(?<=x-ratelimit-remaining: )[0-9]+' "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt")
-				if [[ -z $rate_limit ]]
-				then
-					printf "%s\t - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)"
-					sleep 61
+				wait_time=0
+				while [ $wait_time -lt 5 ];
+				do
 					curl -s 'https://graphql.anilist.co/' \
 					-X POST \
 					-H 'content-type: application/json' \
 					--data '{ "query": "{ Media(type: ANIME, idMal: '"$malid"') { id } }" }' > "$SCRIPT_FOLDER/tmp/anilist-infos.json" -D "$SCRIPT_FOLDER/tmp/anilist-limit-rate.txt"
-				elif [[ $rate_limit -lt 3 ]]
-				then
-					printf "%s - Anilist API limit reached watiting 30s\n" "$(date +%H:%M:%S)"
-					sleep 30
-				else
-					sleep 0.8
-				fi
+					rate_limit=$(grep -oP '(?<=x-ratelimit-remaining: )[0-9]+' "$SCRIPT_FOLDER/config/tmp/anilist-limit-rate.txt")
+					((wait_time++))
+					if [[ -z $rate_limit ]]
+					then
+						printf "%s\t - Cloudflare limit rate reached watiting 60s\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
+						sleep 61
+					elif [[ $rate_limit -ge 3 ]]
+					then
+						sleep 0.6
+						printf "%s\t - Done\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
+						break
+					elif [[ $rate_limit -lt 3 ]]
+					then
+						printf "%s\t - Anilist API limit reached watiting 30s" "$(date +%H:%M:%S)" | tee -a "$LOG"
+						sleep 30
+						break
+					elif [[ $wait_time == 4 ]]
+					then
+						printf "%s - Error can't download anilist data stopping script\n" "$(date +%H:%M:%S)" | tee -a "$LOG"
+						exit 1
+					fi
+				done
 				anilistid=$(jq '.data.Media.id' -r "$SCRIPT_FOLDER/tmp/anilist-infos.json")
 				if [[ -n "$anilistid" ]] && [[ "$anilistid" == "null" ]]
 				then
