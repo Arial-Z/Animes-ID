@@ -107,6 +107,7 @@ function get-mal-anilist-id () {
 				wait_time=0
 				while [ $wait_time -lt 5 ];
 				do
+					printf "%s\t - Downloading anilist data for MAL : %s\n" "$(date +%H:%M:%S)" "$malid"
 					curl -s 'https://graphql.anilist.co/' \
 					-X POST \
 					-H 'content-type: application/json' \
