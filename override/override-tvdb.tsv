@@ -1,5 +1,5 @@
 tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
-343237	2	0	13473	null	100780	Legend of the Galactic Heroes: Die Neue These
+343237	2	0	13473		100780	Legend of the Galactic Heroes: Die Neue These
 259675	3	0	14804	40389	112019	Star Blazers 2199
 245821	1	0	7989	9539	9539	Cardfight!! Vanguard 1
 245821	2	0	8974	13145	13145	Cardfight!! Vanguard 2
@@ -20,7 +20,6 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 71014	-1	0	2448	2390	2390	Kirby: Right Back at Ya!
 72775	-1	0	826	1254	1254	Saint Seiya
 275039	2	0	9306	14751	14751	Sailor Moon Crystal
-70668	-1	0	102	232	232	Cardcaptor Sakura
 79064	2	0	17792	54013	165749	Tenchi Muyo! GXP Paradise Starting
 79414	2	0	6367	4382	4382	Suzumiya Haruhi no Yuuutsu (2009)
 76703	1	0	230	527	527	Pokémon Season 1
@@ -47,15 +46,11 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 70668	2	0	102	232	232	Cardcaptor Sakura S2
 70668	3	0	102	232	232	Cardcaptor Sakura S3
 70668	4	0	12140	33354	97881	Cardcaptor Sakura S4
-425148	1	0	null	52976	155011	Berserk: The Golden Age Arc – Memorial Edition S1
-409490	1	0	16599	49730	138699	Pokémon Evolutions
-428456	1	0	17780	53874	158870	Pokémon: Aim to Be a Pokémon Master
-415119	1	0	17151	50673	142794	Pokémon: The Arceus Chronicles
+425148	1	0		52976	155011	Berserk: The Golden Age Arc – Memorial Edition S1
 394346	1	0	15899	44248	127149	Fate/Grand Carnival
 395150	1	0	195	401	401	Rurouni Kenshin: Reflection
 406554	1	0	73	44	44	Samurai X: Trust & Betrayal - Rurouni Kenshin: Trust & Betrayal
 425299	1	0	17642	53150	155015	Onimusha
-278975	1	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S1
 278975	2	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S2
 278975	3	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S3
 248049	2	0	8140	10015	10015	Yu-Gi-Oh! Zexal S2
