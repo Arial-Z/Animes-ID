@@ -19,7 +19,8 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 254653	4	0	12498	34281	97767	High School D×D
 71014	-1	0	2448	2390	2390	Kirby: Right Back at Ya!
 72775	-1	0	826	1254	1254	Saint Seiya
-275039	2	0	9306	14751	14751	Sailor Moon Crystal
+275039	1	0	9306	14751	14751	Sailor Moon Crystal S1
+275039	2	0	9306	14751	14751	Sailor Moon Crystal S2
 79064	2	0	17792	54013	165749	Tenchi Muyo! GXP Paradise Starting
 79414	2	0	6367	4382	4382	Suzumiya Haruhi no Yuuutsu (2009)
 76703	1	0	230	527	527	Pokémon Season 1
@@ -51,8 +52,10 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 395150	1	0	195	401	401	Rurouni Kenshin: Reflection
 406554	1	0	73	44	44	Samurai X: Trust & Betrayal - Rurouni Kenshin: Trust & Betrayal
 425299	1	0	17642	53150	155015	Onimusha
+278975	1	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S1
 278975	2	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S2
 278975	3	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S3
+248049	1	0	8140	10015	10015	Yu-Gi-Oh! Zexal S1
 248049	2	0	8140	10015	10015	Yu-Gi-Oh! Zexal S2
 248049	3	0	8140	10015	10015	Yu-Gi-Oh! Zexal S3
 248049	4	0	9400	15489	15489	Yu-Gi-Oh! Zexal S4
