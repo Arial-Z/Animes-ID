@@ -35,7 +35,7 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 76703	10	0	4728	1565	1565	Pokémon Season 10
 76703	11	0	4728	1565	1565	Pokémon Season 11
 76703	12	0	4728	1565	1565	Pokémon Season 12
-76703	13	0	4728	1565	1565	"Pokémon Season 13   "
+76703	13	0	4728	1565	1565	Pokémon Season 13
 76703	14	0	7891	9107	9107	Pokémon Season 14
 76703	15	0	9216	14093	14093	Pokémon Season 15
 76703	16	0	9956	19291	19291	Pokémon Season 16
@@ -47,3 +47,29 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 70668	2	0	102	232	232	Cardcaptor Sakura S2
 70668	3	0	102	232	232	Cardcaptor Sakura S3
 70668	4	0	12140	33354	97881	Cardcaptor Sakura S4
+425148	1	0		52976	155011	Berserk: The Golden Age Arc – Memorial Edition S1
+409490	1	0	16599	49730	138699	Pokémon Evolutions
+428456	1	0	17780	53874	158870	Pokémon: Aim to Be a Pokémon Master
+415119	1	0	17151	50673	142794	Pokémon: The Arceus Chronicles
+394346	1	0	15899	44248	127149	Fate/Grand Carnival
+395150	1	0	195	401	401	Rurouni Kenshin: Reflection
+406554	1	0	73	44	44	Samurai X: Trust & Betrayal - Rurouni Kenshin: Trust & Betrayal
+425299	1	0	17642	53150	155015	Onimusha
+278975	1	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S1
+278975	2	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S2
+278975	3	0	10310	21639	20552	Yu-Gi-Oh! Arc-V S3
+248049	1	0	8140	10015	10015	Yu-Gi-Oh! Zexal S1
+248049	2	0	8140	10015	10015	Yu-Gi-Oh! Zexal S2
+248049	3	0	8140	10015	10015	Yu-Gi-Oh! Zexal S3
+248049	4	0	9400	15489	15489	Yu-Gi-Oh! Zexal S4
+248049	5	0	9400	15489	15489	Yu-Gi-Oh! Zexal S5
+248049	6	0	9400	15489	15489	Yu-Gi-Oh! Zexal S6
+412945	1	0	16108	48425	130706	Akuma Kun (2023)
+254899	1	0	8601	11371	11371	The New Prince of Tennis S1
+254899	2	0	10368	21755	20941	The New Prince of Tennis S2
+254899	3	0	16878	50099	140187	The New Prince of Tennis S3
+378520	1	0	15017	40145	114072	Yu-Gi-Oh! SEVENS
+425298	1	0	17641	53151	154999	Onmyoji
+81466	1	0	4366	1215	1215	Mobile Suit Gundam SEED C.E. 73: Stargazer
+429054	1	0	17803	54040	159560	Run for the Money: The Great Mission
+442215	1	0	18277	57160	175642	Sand Land: The Series
