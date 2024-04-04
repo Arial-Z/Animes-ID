@@ -1,4 +1,4 @@
-tvdb_id	tvdb_season	" imdb_id"	anilist_id	year	Award	notes
+tvdb_id	tvdb_season	imdb_id	anilist_id	year	Award	notes
 377543	2	tv	145064	2024	Anime of the Year	Jujutsu Kaisen (S2)
 426294	1	tv	155907	2024	Best Original Anime	Buddy Daddies (S1)
 377543	2	tv	145064	2024	Best Character Design	Jujutsu Kaisen (S2)
@@ -14,7 +14,7 @@ movie	movie	tt16428256	142770	2024	Best Film	Suzume
 348545	4	tv	145139	2024	Best Art Direction	Kimetsu no Yaiba (S4)
 81797	21	tv	21	2024	Best Main Character	One Piece (S21)
 377543	2	tv	145064	2024	Best Supporting Character	Jujutsu Kaisen (S2)
-405920	1	tv	142838	2024	"""Must Protect At All Costs"" Character"	SPY x FAMILY (S1 P2)
+405920	1	tv	142838	2024	Must Protect At All Costs Character	SPY x FAMILY (S1 P2)
 377543	2	tv	145064	2024	Best Action	Jujutsu Kaisen (S2)
 405920	1	tv	142838	2024	Best Comedy	SPY x FAMILY (S1 P2)
 267440	4	tv	146984	2024	Best Drama	Attack on Titan (S4 P3)
@@ -44,7 +44,7 @@ movie	movie	tt14331144	131573	2023	Best Film	Jujutsu Kaisen 0
 348545	3	tv	142329	2023	Best Director	Kimetsu no Yaiba (S3)
 405920	1	tv	140960	2023	Best Main Character	Attack on Titan (S4 P2)
 405920	1	tv	140960	2023	Best Supporting Character	SPY x FAMILY (S1 P1)
-405920	1	tv	140960	2023	"""Must Protect At All Costs"" Character"	SPY x FAMILY (S1 P1)
+405920	1	tv	140960	2023	Must Protect At All Costs Character	SPY x FAMILY (S1 P1)
 348545	3	tv	142329	2023	Best Action	Kimetsu no Yaiba (S3)
 405920	1	tv	140960	2023	Best Comedy	SPY x FAMILY (S1 P1)
 267440	4	tv	131681	2023	Best Drama	Attack on Titan (S4 P2)
@@ -86,7 +86,8 @@ movie	movie	tt14331144	131573	2023	Best VA Performance (German)	Jujutsu Kaisen 0
 388593	1	tv	124080	2022	Best Romance	Horimiya (S1)
 348545	2	tv	112151	2022	Best Score	Kimetsu no Yaiba (S2)
 movie	movie	tt11032374	112151	2022	Best Film	Kimetsu no Yaiba - The Movie : Mugen Train
-352408	2	tv	108511,116742	2022	Best Fantasy	That Time I Got Reincarnated as a Slime (S2)
+352408	2	tv	108511	2022	Best Fantasy	That Time I Got Reincarnated as a Slime (S2 P1)
+352408	2	tv	116742	2022	Best Fantasy	That Time I Got Reincarnated as a Slime (S2 P2)
 377543	1	tv	113415	2021	Anime of the Year	Jujutsu Kaisen (S1)
 371437	1	tv	120209	2021	Best Hero	My Next Life as a Villainess: All Routes Lead to Doom! (S1)
 377543	1	tv	113415	2021	Best Villain	Jujutsu Kaisen (S1)
