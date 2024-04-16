@@ -1,19 +1,11 @@
 [
   {
-    "tvdb_id": "tvdb_id",
-    "tvdb_season": "tvdb_season",
-    "imdb_id": "imdb_id",
-    "anilist_id": "anilist_id",
-    "year": "year",
-    "cr-award": "Award"
-  },
-  {
     "tvdb_id": "377543",
     "tvdb_season": "2",
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "426294",
@@ -21,7 +13,7 @@
     "imdb_id": "tv",
     "anilist_id": "155907",
     "year": "2024",
-    "cr-award": "Best Original Anime"
+    "cr_award": "Best Original Anime"
   },
   {
     "tvdb_id": "377543",
@@ -29,7 +21,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Character Design"
+    "cr_award": "Best Character Design"
   },
   {
     "tvdb_id": "348545",
@@ -37,7 +29,7 @@
     "imdb_id": "tv",
     "anilist_id": "145139",
     "year": "2024",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "397934",
@@ -45,7 +37,7 @@
     "imdb_id": "tv",
     "anilist_id": "127230",
     "year": "2024",
-    "cr-award": "Best New Series"
+    "cr_award": "Best New Series"
   },
   {
     "tvdb_id": "81797",
@@ -53,7 +45,7 @@
     "imdb_id": "tv",
     "anilist_id": "21",
     "year": "2024",
-    "cr-award": "Best Continuing Series"
+    "cr_award": "Best Continuing Series"
   },
   {
     "tvdb_id": "377543",
@@ -61,7 +53,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "377543",
@@ -69,7 +61,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "267440",
@@ -77,7 +69,7 @@
     "imdb_id": "tv",
     "anilist_id": "146984",
     "year": "2024",
-    "cr-award": "Best Score"
+    "cr_award": "Best Score"
   },
   {
     "tvdb_id": "movie",
@@ -85,7 +77,7 @@
     "imdb_id": "tt16428256",
     "anilist_id": "142770",
     "year": "2024",
-    "cr-award": "Best Film"
+    "cr_award": "Best Film"
   },
   {
     "tvdb_id": "377543",
@@ -93,7 +85,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Director"
+    "cr_award": "Best Director"
   },
   {
     "tvdb_id": "377543",
@@ -101,7 +93,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Cinematography"
+    "cr_award": "Best Cinematography"
   },
   {
     "tvdb_id": "348545",
@@ -109,7 +101,7 @@
     "imdb_id": "tv",
     "anilist_id": "145139",
     "year": "2024",
-    "cr-award": "Best Art Direction"
+    "cr_award": "Best Art Direction"
   },
   {
     "tvdb_id": "81797",
@@ -117,7 +109,7 @@
     "imdb_id": "tv",
     "anilist_id": "21",
     "year": "2024",
-    "cr-award": "Best Main Character"
+    "cr_award": "Best Main Character"
   },
   {
     "tvdb_id": "377543",
@@ -125,7 +117,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Supporting Character"
+    "cr_award": "Best Supporting Character"
   },
   {
     "tvdb_id": "405920",
@@ -133,7 +125,7 @@
     "imdb_id": "tv",
     "anilist_id": "142838",
     "year": "2024",
-    "cr-award": "Must Protect At All Costs Character"
+    "cr_award": "Must Protect At All Costs Character"
   },
   {
     "tvdb_id": "377543",
@@ -141,7 +133,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best Action"
+    "cr_award": "Best Action"
   },
   {
     "tvdb_id": "405920",
@@ -149,7 +141,7 @@
     "imdb_id": "tv",
     "anilist_id": "142838",
     "year": "2024",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "267440",
@@ -157,7 +149,7 @@
     "imdb_id": "tv",
     "anilist_id": "146984",
     "year": "2024",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "348545",
@@ -165,7 +157,7 @@
     "imdb_id": "tv",
     "anilist_id": "145139",
     "year": "2024",
-    "cr-award": "Best Fantasy"
+    "cr_award": "Best Fantasy"
   },
   {
     "tvdb_id": "436124",
@@ -173,7 +165,7 @@
     "imdb_id": "tv",
     "anilist_id": "163132",
     "year": "2024",
-    "cr-award": "Best Romance"
+    "cr_award": "Best Romance"
   },
   {
     "tvdb_id": "413522",
@@ -181,7 +173,7 @@
     "imdb_id": "tv",
     "anilist_id": "130003",
     "year": "2024",
-    "cr-award": "Best Slice of Life"
+    "cr_award": "Best Slice of Life"
   },
   {
     "tvdb_id": "377543",
@@ -189,7 +181,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best VA Performance (Japanese)"
+    "cr_award": "Best VA Performance (Japanese)"
   },
   {
     "tvdb_id": "397934",
@@ -197,7 +189,7 @@
     "imdb_id": "tv",
     "anilist_id": "127230",
     "year": "2024",
-    "cr-award": "Best VA Performance (English)"
+    "cr_award": "Best VA Performance (English)"
   },
   {
     "tvdb_id": "355774",
@@ -205,7 +197,7 @@
     "imdb_id": "tv",
     "anilist_id": "105333",
     "year": "2024",
-    "cr-award": "Best VA Performance (Arabic)"
+    "cr_award": "Best VA Performance (Arabic)"
   },
   {
     "tvdb_id": "397934",
@@ -213,7 +205,7 @@
     "imdb_id": "tv",
     "anilist_id": "127230",
     "year": "2024",
-    "cr-award": "Best VA Performance (Spanish)"
+    "cr_award": "Best VA Performance (Spanish)"
   },
   {
     "tvdb_id": "397934",
@@ -221,7 +213,7 @@
     "imdb_id": "tv",
     "anilist_id": "127230",
     "year": "2024",
-    "cr-award": "Best VA Performance (Castilian)"
+    "cr_award": "Best VA Performance (Castilian)"
   },
   {
     "tvdb_id": "377543",
@@ -229,7 +221,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best VA Performance (French)"
+    "cr_award": "Best VA Performance (French)"
   },
   {
     "tvdb_id": "377543",
@@ -237,7 +229,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best VA Performance (German)"
+    "cr_award": "Best VA Performance (German)"
   },
   {
     "tvdb_id": "377543",
@@ -245,7 +237,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best VA Performance (Italian)"
+    "cr_award": "Best VA Performance (Italian)"
   },
   {
     "tvdb_id": "377543",
@@ -253,7 +245,7 @@
     "imdb_id": "tv",
     "anilist_id": "145064",
     "year": "2024",
-    "cr-award": "Best VA Performance (Portuguese)"
+    "cr_award": "Best VA Performance (Portuguese)"
   },
   {
     "tvdb_id": "421069",
@@ -261,7 +253,7 @@
     "imdb_id": "tv",
     "anilist_id": "150672",
     "year": "2024",
-    "cr-award": "Best Anime Song"
+    "cr_award": "Best Anime Song"
   },
   {
     "tvdb_id": "384541",
@@ -269,7 +261,7 @@
     "imdb_id": "tv",
     "anilist_id": "120377",
     "year": "2023",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "414057",
@@ -277,7 +269,7 @@
     "imdb_id": "tv",
     "anilist_id": "143270",
     "year": "2023",
-    "cr-award": "Best Original Anime"
+    "cr_award": "Best Original Anime"
   },
   {
     "tvdb_id": "348545",
@@ -285,7 +277,7 @@
     "imdb_id": "tv",
     "anilist_id": "142329",
     "year": "2023",
-    "cr-award": "Best Character Design"
+    "cr_award": "Best Character Design"
   },
   {
     "tvdb_id": "348545",
@@ -293,7 +285,7 @@
     "imdb_id": "tv",
     "anilist_id": "142329",
     "year": "2023",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "405920",
@@ -301,7 +293,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best New Series"
+    "cr_award": "Best New Series"
   },
   {
     "tvdb_id": "81797",
@@ -309,7 +301,7 @@
     "imdb_id": "tv",
     "anilist_id": "21",
     "year": "2023",
-    "cr-award": "Best Continuing Series"
+    "cr_award": "Best Continuing Series"
   },
   {
     "tvdb_id": "267440",
@@ -317,7 +309,7 @@
     "imdb_id": "tv",
     "anilist_id": "131681",
     "year": "2023",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "405920",
@@ -325,7 +317,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "267440",
@@ -333,7 +325,7 @@
     "imdb_id": "tv",
     "anilist_id": "131681",
     "year": "2023",
-    "cr-award": "Best Score"
+    "cr_award": "Best Score"
   },
   {
     "tvdb_id": "movie",
@@ -341,7 +333,7 @@
     "imdb_id": "tt14331144",
     "anilist_id": "131573",
     "year": "2023",
-    "cr-award": "Best Film"
+    "cr_award": "Best Film"
   },
   {
     "tvdb_id": "348545",
@@ -349,7 +341,7 @@
     "imdb_id": "tv",
     "anilist_id": "142329",
     "year": "2023",
-    "cr-award": "Best Director"
+    "cr_award": "Best Director"
   },
   {
     "tvdb_id": "405920",
@@ -357,7 +349,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best Main Character"
+    "cr_award": "Best Main Character"
   },
   {
     "tvdb_id": "405920",
@@ -365,7 +357,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best Supporting Character"
+    "cr_award": "Best Supporting Character"
   },
   {
     "tvdb_id": "405920",
@@ -373,7 +365,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Must Protect At All Costs Character"
+    "cr_award": "Must Protect At All Costs Character"
   },
   {
     "tvdb_id": "348545",
@@ -381,7 +373,7 @@
     "imdb_id": "tv",
     "anilist_id": "142329",
     "year": "2023",
-    "cr-award": "Best Action"
+    "cr_award": "Best Action"
   },
   {
     "tvdb_id": "405920",
@@ -389,7 +381,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "267440",
@@ -397,7 +389,7 @@
     "imdb_id": "tv",
     "anilist_id": "131681",
     "year": "2023",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "348545",
@@ -405,7 +397,7 @@
     "imdb_id": "tv",
     "anilist_id": "142329",
     "year": "2023",
-    "cr-award": "Best Fantasy"
+    "cr_award": "Best Fantasy"
   },
   {
     "tvdb_id": "354198",
@@ -413,7 +405,7 @@
     "imdb_id": "tv",
     "anilist_id": "125367",
     "year": "2023",
-    "cr-award": "Best Romance"
+    "cr_award": "Best Romance"
   },
   {
     "tvdb_id": "267440",
@@ -421,7 +413,7 @@
     "imdb_id": "tv",
     "anilist_id": "131681",
     "year": "2023",
-    "cr-award": "Best VA Performance (Japanese)"
+    "cr_award": "Best VA Performance (Japanese)"
   },
   {
     "tvdb_id": "384541",
@@ -429,7 +421,7 @@
     "imdb_id": "tv",
     "anilist_id": "120377",
     "year": "2023",
-    "cr-award": "Best VA Performance (English)"
+    "cr_award": "Best VA Performance (English)"
   },
   {
     "tvdb_id": "252322",
@@ -437,7 +429,7 @@
     "imdb_id": "tv",
     "anilist_id": "11061",
     "year": "2023",
-    "cr-award": "Best VA Performance (Arabic)"
+    "cr_award": "Best VA Performance (Arabic)"
   },
   {
     "tvdb_id": "348545",
@@ -445,7 +437,7 @@
     "imdb_id": "tv",
     "anilist_id": "142329",
     "year": "2023",
-    "cr-award": "Best VA Performance (Spanish)"
+    "cr_award": "Best VA Performance (Spanish)"
   },
   {
     "tvdb_id": "movie",
@@ -453,7 +445,7 @@
     "imdb_id": "tt14331144",
     "anilist_id": "131573",
     "year": "2023",
-    "cr-award": "Best VA Performance (Castilian)"
+    "cr_award": "Best VA Performance (Castilian)"
   },
   {
     "tvdb_id": "391625",
@@ -461,7 +453,7 @@
     "imdb_id": "tv",
     "anilist_id": "113717",
     "year": "2023",
-    "cr-award": "Best VA Performance (French)"
+    "cr_award": "Best VA Performance (French)"
   },
   {
     "tvdb_id": "movie",
@@ -469,7 +461,7 @@
     "imdb_id": "tt14331144",
     "anilist_id": "131573",
     "year": "2023",
-    "cr-award": "Best VA Performance (German)"
+    "cr_award": "Best VA Performance (German)"
   },
   {
     "tvdb_id": "377543",
@@ -477,7 +469,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2023",
-    "cr-award": "Best VA Performance (Italian)"
+    "cr_award": "Best VA Performance (Italian)"
   },
   {
     "tvdb_id": "405920",
@@ -485,7 +477,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best VA Performance (Portuguese)"
+    "cr_award": "Best VA Performance (Portuguese)"
   },
   {
     "tvdb_id": "405920",
@@ -493,7 +485,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best Anime Song"
+    "cr_award": "Best Anime Song"
   },
   {
     "tvdb_id": "405920",
@@ -501,7 +493,7 @@
     "imdb_id": "tv",
     "anilist_id": "140960",
     "year": "2023",
-    "cr-award": "Best New Series"
+    "cr_award": "Best New Series"
   },
   {
     "tvdb_id": "267440",
@@ -509,7 +501,7 @@
     "imdb_id": "tv",
     "anilist_id": "110277",
     "year": "2022",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "397208",
@@ -517,7 +509,7 @@
     "imdb_id": "tv",
     "anilist_id": "128547",
     "year": "2022",
-    "cr-award": "Best Hero"
+    "cr_award": "Best Hero"
   },
   {
     "tvdb_id": "267440",
@@ -525,7 +517,7 @@
     "imdb_id": "tv",
     "anilist_id": "110277",
     "year": "2022",
-    "cr-award": "Best Villain"
+    "cr_award": "Best Villain"
   },
   {
     "tvdb_id": "391625",
@@ -533,7 +525,7 @@
     "imdb_id": "tv",
     "anilist_id": "113717",
     "year": "2022",
-    "cr-award": "Best Boy"
+    "cr_award": "Best Boy"
   },
   {
     "tvdb_id": "377543",
@@ -541,7 +533,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2022",
-    "cr-award": "Best Girl"
+    "cr_award": "Best Girl"
   },
   {
     "tvdb_id": "267440",
@@ -549,7 +541,7 @@
     "imdb_id": "tv",
     "anilist_id": "110277",
     "year": "2022",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "348545",
@@ -557,7 +549,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "267440",
@@ -565,7 +557,7 @@
     "imdb_id": "tv",
     "anilist_id": "110277",
     "year": "2022",
-    "cr-award": "Best VA Performance (Japanese)"
+    "cr_award": "Best VA Performance (Japanese)"
   },
   {
     "tvdb_id": "388858",
@@ -573,7 +565,7 @@
     "imdb_id": "tv",
     "anilist_id": "124153",
     "year": "2022",
-    "cr-award": "Best VA Performance (English)"
+    "cr_award": "Best VA Performance (English)"
   },
   {
     "tvdb_id": "377543",
@@ -581,7 +573,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2022",
-    "cr-award": "Best VA Performance (German)"
+    "cr_award": "Best VA Performance (German)"
   },
   {
     "tvdb_id": "348545",
@@ -589,7 +581,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best VA Performance (French)"
+    "cr_award": "Best VA Performance (French)"
   },
   {
     "tvdb_id": "348545",
@@ -597,7 +589,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best VA Performance (Spanish)"
+    "cr_award": "Best VA Performance (Spanish)"
   },
   {
     "tvdb_id": "348545",
@@ -605,7 +597,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best VA Performance (Castilian)"
+    "cr_award": "Best VA Performance (Castilian)"
   },
   {
     "tvdb_id": "377543",
@@ -613,7 +605,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2022",
-    "cr-award": "Best VA Performance (Portuguese)"
+    "cr_award": "Best VA Performance (Portuguese)"
   },
   {
     "tvdb_id": "348545",
@@ -621,7 +613,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best VA Performance (Russian)"
+    "cr_award": "Best VA Performance (Russian)"
   },
   {
     "tvdb_id": "397208",
@@ -629,7 +621,7 @@
     "imdb_id": "tv",
     "anilist_id": "128547",
     "year": "2022",
-    "cr-award": "Best Director"
+    "cr_award": "Best Director"
   },
   {
     "tvdb_id": "348545",
@@ -637,7 +629,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "377543",
@@ -645,7 +637,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2022",
-    "cr-award": "Best Character Design"
+    "cr_award": "Best Character Design"
   },
   {
     "tvdb_id": "377543",
@@ -653,7 +645,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2022",
-    "cr-award": "Best Fight Scene"
+    "cr_award": "Best Fight Scene"
   },
   {
     "tvdb_id": "377543",
@@ -661,7 +653,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2022",
-    "cr-award": "Best Action"
+    "cr_award": "Best Action"
   },
   {
     "tvdb_id": "375271",
@@ -669,7 +661,7 @@
     "imdb_id": "tv",
     "anilist_id": "114535",
     "year": "2022",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "402412",
@@ -677,7 +669,7 @@
     "imdb_id": "tv",
     "anilist_id": "133965",
     "year": "2022",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "388593",
@@ -685,7 +677,7 @@
     "imdb_id": "tv",
     "anilist_id": "124080",
     "year": "2022",
-    "cr-award": "Best Romance"
+    "cr_award": "Best Romance"
   },
   {
     "tvdb_id": "348545",
@@ -693,7 +685,7 @@
     "imdb_id": "tv",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best Score"
+    "cr_award": "Best Score"
   },
   {
     "tvdb_id": "movie",
@@ -701,7 +693,7 @@
     "imdb_id": "tt11032374",
     "anilist_id": "112151",
     "year": "2022",
-    "cr-award": "Best Film"
+    "cr_award": "Best Film"
   },
   {
     "tvdb_id": "352408",
@@ -709,7 +701,7 @@
     "imdb_id": "tv",
     "anilist_id": "108511",
     "year": "2022",
-    "cr-award": "Best Fantasy"
+    "cr_award": "Best Fantasy"
   },
   {
     "tvdb_id": "352408",
@@ -717,7 +709,7 @@
     "imdb_id": "tv",
     "anilist_id": "116742",
     "year": "2022",
-    "cr-award": "Best Fantasy"
+    "cr_award": "Best Fantasy"
   },
   {
     "tvdb_id": "377543",
@@ -725,7 +717,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2021",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "371437",
@@ -733,7 +725,7 @@
     "imdb_id": "tv",
     "anilist_id": "120209",
     "year": "2021",
-    "cr-award": "Best Hero"
+    "cr_award": "Best Hero"
   },
   {
     "tvdb_id": "377543",
@@ -741,7 +733,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2021",
-    "cr-award": "Best Villain"
+    "cr_award": "Best Villain"
   },
   {
     "tvdb_id": "278157",
@@ -749,7 +741,7 @@
     "imdb_id": "tv",
     "anilist_id": "20464",
     "year": "2021",
-    "cr-award": "Best Boy"
+    "cr_award": "Best Boy"
   },
   {
     "tvdb_id": "354198",
@@ -757,7 +749,7 @@
     "imdb_id": "tv",
     "anilist_id": "112641",
     "year": "2021",
-    "cr-award": "Best Girl"
+    "cr_award": "Best Girl"
   },
   {
     "tvdb_id": "361013",
@@ -765,7 +757,7 @@
     "imdb_id": "tv",
     "anilist_id": "107660",
     "year": "2021",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "377543",
@@ -773,7 +765,7 @@
     "imdb_id": "tv",
     "anilist_id": "113415",
     "year": "2021",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "305089",
@@ -781,7 +773,7 @@
     "imdb_id": "tv",
     "anilist_id": "108632",
     "year": "2021",
-    "cr-award": "Best VA Performance (Japanese)"
+    "cr_award": "Best VA Performance (Japanese)"
   },
   {
     "tvdb_id": "318893",
@@ -789,7 +781,7 @@
     "imdb_id": "tv",
     "anilist_id": "104276",
     "year": "2021",
-    "cr-award": "Best VA Performance (English)"
+    "cr_award": "Best VA Performance (English)"
   },
   {
     "tvdb_id": "370769",
@@ -797,7 +789,7 @@
     "imdb_id": "tv",
     "anilist_id": "109298",
     "year": "2021",
-    "cr-award": "Best Director"
+    "cr_award": "Best Director"
   },
   {
     "tvdb_id": "370769",
@@ -805,7 +797,7 @@
     "imdb_id": "tv",
     "anilist_id": "109298",
     "year": "2021",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "368364",
@@ -813,7 +805,7 @@
     "imdb_id": "tv",
     "anilist_id": "108463",
     "year": "2021",
-    "cr-award": "Best Character Design"
+    "cr_award": "Best Character Design"
   },
   {
     "tvdb_id": "318893",
@@ -821,7 +813,7 @@
     "imdb_id": "tv",
     "anilist_id": "104276",
     "year": "2021",
-    "cr-award": "Best Fight Scene"
+    "cr_award": "Best Fight Scene"
   },
   {
     "tvdb_id": "357488",
@@ -829,7 +821,7 @@
     "imdb_id": "tv",
     "anilist_id": "111762",
     "year": "2021",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "354198",
@@ -837,7 +829,7 @@
     "imdb_id": "tv",
     "anilist_id": "112641",
     "year": "2021",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "376729",
@@ -845,7 +837,7 @@
     "imdb_id": "tv",
     "anilist_id": "115230",
     "year": "2021",
-    "cr-award": "Best Score"
+    "cr_award": "Best Score"
   },
   {
     "tvdb_id": "385077",
@@ -853,7 +845,7 @@
     "imdb_id": "tv",
     "anilist_id": "116267",
     "year": "2021",
-    "cr-award": "Best Couple"
+    "cr_award": "Best Couple"
   },
   {
     "tvdb_id": "305089",
@@ -861,7 +853,7 @@
     "imdb_id": "tv",
     "anilist_id": "108632",
     "year": "2021",
-    "cr-award": "Best Fantasy"
+    "cr_award": "Best Fantasy"
   },
   {
     "tvdb_id": "348545",
@@ -869,7 +861,7 @@
     "imdb_id": "tv",
     "anilist_id": "101922",
     "year": "2020",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "355774",
@@ -877,7 +869,7 @@
     "imdb_id": "tv",
     "anilist_id": "105333",
     "year": "2020",
-    "cr-award": "Best Hero"
+    "cr_award": "Best Hero"
   },
   {
     "tvdb_id": "348002",
@@ -885,7 +877,7 @@
     "imdb_id": "tv",
     "anilist_id": "101759",
     "year": "2020",
-    "cr-award": "Best Villain"
+    "cr_award": "Best Villain"
   },
   {
     "tvdb_id": "348545",
@@ -893,7 +885,7 @@
     "imdb_id": "tv",
     "anilist_id": "101922",
     "year": "2020",
-    "cr-award": "Best Boy"
+    "cr_award": "Best Boy"
   },
   {
     "tvdb_id": "353712",
@@ -901,7 +893,7 @@
     "imdb_id": "tv",
     "anilist_id": "99263",
     "year": "2020",
-    "cr-award": "Best Girl"
+    "cr_award": "Best Girl"
   },
   {
     "tvdb_id": "307375",
@@ -909,7 +901,7 @@
     "imdb_id": "tv",
     "anilist_id": "101338",
     "year": "2020",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "354198",
@@ -917,7 +909,7 @@
     "imdb_id": "tv",
     "anilist_id": "101921",
     "year": "2020",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "262954",
@@ -925,7 +917,7 @@
     "imdb_id": "tv",
     "anilist_id": "102883",
     "year": "2020",
-    "cr-award": "Best VA Performance (Japanese)"
+    "cr_award": "Best VA Performance (Japanese)"
   },
   {
     "tvdb_id": "353712",
@@ -933,7 +925,7 @@
     "imdb_id": "tv",
     "anilist_id": "99263",
     "year": "2020",
-    "cr-award": "Best VA Performance (English)"
+    "cr_award": "Best VA Performance (English)"
   },
   {
     "tvdb_id": "267440",
@@ -941,7 +933,7 @@
     "imdb_id": "tv",
     "anilist_id": "99147",
     "year": "2020",
-    "cr-award": "Best Director"
+    "cr_award": "Best Director"
   },
   {
     "tvdb_id": "307375",
@@ -949,7 +941,7 @@
     "imdb_id": "tv",
     "anilist_id": "101338",
     "year": "2020",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "354167",
@@ -957,7 +949,7 @@
     "imdb_id": "tv",
     "anilist_id": "101347",
     "year": "2020",
-    "cr-award": "Best Character Design"
+    "cr_award": "Best Character Design"
   },
   {
     "tvdb_id": "348545",
@@ -965,7 +957,7 @@
     "imdb_id": "tv",
     "anilist_id": "101922",
     "year": "2020",
-    "cr-award": "Best Fight Scene"
+    "cr_award": "Best Fight Scene"
   },
   {
     "tvdb_id": "359274",
@@ -973,7 +965,7 @@
     "imdb_id": "tv",
     "anilist_id": "101348",
     "year": "2020",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "354198",
@@ -981,7 +973,7 @@
     "imdb_id": "tv",
     "anilist_id": "101921",
     "year": "2020",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "354154",
@@ -989,7 +981,7 @@
     "imdb_id": "tv",
     "anilist_id": "101281",
     "year": "2020",
-    "cr-award": "Best Score"
+    "cr_award": "Best Score"
   },
   {
     "tvdb_id": "354198",
@@ -997,7 +989,7 @@
     "imdb_id": "tv",
     "anilist_id": "101921",
     "year": "2020",
-    "cr-award": "Best Couple"
+    "cr_award": "Best Couple"
   },
   {
     "tvdb_id": "348002",
@@ -1005,7 +997,7 @@
     "imdb_id": "tv",
     "anilist_id": "101759",
     "year": "2020",
-    "cr-award": "Best Fantasy"
+    "cr_award": "Best Fantasy"
   },
   {
     "tvdb_id": "338192",
@@ -1013,7 +1005,7 @@
     "imdb_id": "tv",
     "anilist_id": "98460",
     "year": "2019",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "352408",
@@ -1021,7 +1013,7 @@
     "imdb_id": "tv",
     "anilist_id": "101280",
     "year": "2019",
-    "cr-award": "Best Hero"
+    "cr_award": "Best Hero"
   },
   {
     "tvdb_id": "318893",
@@ -1029,7 +1021,7 @@
     "imdb_id": "tv",
     "anilist_id": "100166",
     "year": "2019",
-    "cr-award": "Best Villain"
+    "cr_award": "Best Villain"
   },
   {
     "tvdb_id": "318893",
@@ -1037,7 +1029,7 @@
     "imdb_id": "tv",
     "anilist_id": "100166",
     "year": "2019",
-    "cr-award": "Best Boy"
+    "cr_award": "Best Boy"
   },
   {
     "tvdb_id": "345596",
@@ -1045,7 +1037,7 @@
     "imdb_id": "tv",
     "anilist_id": "101291",
     "year": "2019",
-    "cr-award": "Best Girl"
+    "cr_award": "Best Girl"
   },
   {
     "tvdb_id": "337017",
@@ -1053,7 +1045,7 @@
     "imdb_id": "tv",
     "anilist_id": "99423",
     "year": "2019",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "267440",
@@ -1061,7 +1053,7 @@
     "imdb_id": "tv",
     "anilist_id": "99147",
     "year": "2019",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "351953",
@@ -1069,7 +1061,7 @@
     "imdb_id": "tv",
     "anilist_id": "103871",
     "year": "2019",
-    "cr-award": "Best VA Performance (Japanese)"
+    "cr_award": "Best VA Performance (Japanese)"
   },
   {
     "tvdb_id": "318893",
@@ -1077,7 +1069,7 @@
     "imdb_id": "tv",
     "anilist_id": "100166",
     "year": "2019",
-    "cr-award": "Best VA Performance (English)"
+    "cr_award": "Best VA Performance (English)"
   },
   {
     "tvdb_id": "338192",
@@ -1085,7 +1077,7 @@
     "imdb_id": "tv",
     "anilist_id": "98460",
     "year": "2019",
-    "cr-award": "Best Director"
+    "cr_award": "Best Director"
   },
   {
     "tvdb_id": "330139",
@@ -1093,7 +1085,7 @@
     "imdb_id": "tv",
     "anilist_id": "21827",
     "year": "2019",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "262954",
@@ -1101,7 +1093,7 @@
     "imdb_id": "tv",
     "anilist_id": "102883",
     "year": "2019",
-    "cr-award": "Best Character Design"
+    "cr_award": "Best Character Design"
   },
   {
     "tvdb_id": "318893",
@@ -1109,7 +1101,7 @@
     "imdb_id": "tv",
     "anilist_id": "100166",
     "year": "2019",
-    "cr-award": "Best Fight Scene"
+    "cr_award": "Best Fight Scene"
   },
   {
     "tvdb_id": "movie",
@@ -1117,7 +1109,7 @@
     "imdb_id": "tt7745068",
     "anilist_id": "100723",
     "year": "2019",
-    "cr-award": "Best Film"
+    "cr_award": "Best Film"
   },
   {
     "tvdb_id": "295068",
@@ -1125,7 +1117,7 @@
     "imdb_id": "tv",
     "anilist_id": "21175",
     "year": "2019",
-    "cr-award": "Best Continuing Series"
+    "cr_award": "Best Continuing Series"
   },
   {
     "tvdb_id": "326109",
@@ -1133,7 +1125,7 @@
     "imdb_id": "tv",
     "anilist_id": "97986",
     "year": "2018",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "305074",
@@ -1141,7 +1133,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Hero"
+    "cr_award": "Best Hero"
   },
   {
     "tvdb_id": "305074",
@@ -1149,7 +1141,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Villain"
+    "cr_award": "Best Villain"
   },
   {
     "tvdb_id": "305074",
@@ -1157,7 +1149,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Boy"
+    "cr_award": "Best Boy"
   },
   {
     "tvdb_id": "305074",
@@ -1165,7 +1157,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Girl"
+    "cr_award": "Best Girl"
   },
   {
     "tvdb_id": "305074",
@@ -1173,7 +1165,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "318893",
@@ -1181,7 +1173,7 @@
     "imdb_id": "tv",
     "anilist_id": "21776",
     "year": "2018",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "305074",
@@ -1189,7 +1181,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "316842",
@@ -1197,7 +1189,7 @@
     "imdb_id": "tv",
     "anilist_id": "98436",
     "year": "2018",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "318893",
@@ -1205,7 +1197,7 @@
     "imdb_id": "tv",
     "anilist_id": "21776",
     "year": "2018",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "326109",
@@ -1213,7 +1205,7 @@
     "imdb_id": "tv",
     "anilist_id": "97986",
     "year": "2018",
-    "cr-award": "Best Score"
+    "cr_award": "Best Score"
   },
   {
     "tvdb_id": "305074",
@@ -1221,7 +1213,7 @@
     "imdb_id": "tv",
     "anilist_id": "21856",
     "year": "2018",
-    "cr-award": "Best Action"
+    "cr_award": "Best Action"
   },
   {
     "tvdb_id": "movie",
@@ -1229,7 +1221,7 @@
     "imdb_id": "tt5311514",
     "anilist_id": "21519",
     "year": "2018",
-    "cr-award": "Best Film"
+    "cr_award": "Best Film"
   },
   {
     "tvdb_id": "306269",
@@ -1237,7 +1229,7 @@
     "imdb_id": "tv",
     "anilist_id": "98478",
     "year": "2018",
-    "cr-award": "Best Continuing Series"
+    "cr_award": "Best Continuing Series"
   },
   {
     "tvdb_id": "331787",
@@ -1245,7 +1237,7 @@
     "imdb_id": "tv",
     "anilist_id": "98707",
     "year": "2018",
-    "cr-award": "Best CGI"
+    "cr_award": "Best CGI"
   },
   {
     "tvdb_id": "332983",
@@ -1253,7 +1245,7 @@
     "imdb_id": "tv",
     "anilist_id": "99420",
     "year": "2018",
-    "cr-award": "Best Slice of Life"
+    "cr_award": "Best Slice of Life"
   },
   {
     "tvdb_id": "317004",
@@ -1261,7 +1253,7 @@
     "imdb_id": "tv",
     "anilist_id": "21709",
     "year": "2017",
-    "cr-award": "Anime of the Year"
+    "cr_award": "Anime of the Year"
   },
   {
     "tvdb_id": "305074",
@@ -1269,7 +1261,7 @@
     "imdb_id": "tv",
     "anilist_id": "21459",
     "year": "2017",
-    "cr-award": "Best Hero"
+    "cr_award": "Best Hero"
   },
   {
     "tvdb_id": "303071",
@@ -1277,7 +1269,7 @@
     "imdb_id": "tv",
     "anilist_id": "21234",
     "year": "2017",
-    "cr-award": "Best Villain"
+    "cr_award": "Best Villain"
   },
   {
     "tvdb_id": "317004",
@@ -1285,7 +1277,7 @@
     "imdb_id": "tv",
     "anilist_id": "21709",
     "year": "2017",
-    "cr-award": "Best Boy"
+    "cr_award": "Best Boy"
   },
   {
     "tvdb_id": "305089",
@@ -1293,7 +1285,7 @@
     "imdb_id": "tv",
     "anilist_id": "21355",
     "year": "2017",
-    "cr-award": "Best Girl"
+    "cr_award": "Best Girl"
   },
   {
     "tvdb_id": "317004",
@@ -1301,7 +1293,7 @@
     "imdb_id": "tv",
     "anilist_id": "21709",
     "year": "2017",
-    "cr-award": "Best Opening"
+    "cr_award": "Best Opening"
   },
   {
     "tvdb_id": "317004",
@@ -1309,7 +1301,7 @@
     "imdb_id": "tv",
     "anilist_id": "21709",
     "year": "2017",
-    "cr-award": "Best Ending"
+    "cr_award": "Best Ending"
   },
   {
     "tvdb_id": "317004",
@@ -1317,7 +1309,7 @@
     "imdb_id": "tv",
     "anilist_id": "21709",
     "year": "2017",
-    "cr-award": "Best Animation"
+    "cr_award": "Best Animation"
   },
   {
     "tvdb_id": "307375",
@@ -1325,7 +1317,7 @@
     "imdb_id": "tv",
     "anilist_id": "21507",
     "year": "2017",
-    "cr-award": "Best Fight Scene"
+    "cr_award": "Best Fight Scene"
   },
   {
     "tvdb_id": "303071",
@@ -1333,7 +1325,7 @@
     "imdb_id": "tv",
     "anilist_id": "21234",
     "year": "2017",
-    "cr-award": "Best Drama"
+    "cr_award": "Best Drama"
   },
   {
     "tvdb_id": "306153",
@@ -1341,7 +1333,7 @@
     "imdb_id": "tv",
     "anilist_id": "21595",
     "year": "2017",
-    "cr-award": "Best Comedy"
+    "cr_award": "Best Comedy"
   },
   {
     "tvdb_id": "317004",
@@ -1349,7 +1341,7 @@
     "imdb_id": "tv",
     "anilist_id": "21709",
     "year": "2017",
-    "cr-award": "Best Couple"
+    "cr_award": "Best Couple"
   },
   {
     "tvdb_id": "307375",
@@ -1357,6 +1349,6 @@
     "imdb_id": "tv",
     "anilist_id": "21507",
     "year": "2017",
-    "cr-award": "Best Action"
+    "cr_award": "Best Action"
   }
 ]
