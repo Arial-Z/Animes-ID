@@ -1,3 +1,4 @@
+Missing Anilist id for Anidb : 2034 fix needed
 Missing Anilist id for Anidb : 4742 fix needed
 Missing Anilist id for Anidb : 5974 fix needed
 Missing Anilist id for Anidb : 5978 fix needed
@@ -52,13 +53,16 @@ Missing Anilist id for Anidb : 8676 fix needed
 Missing Anilist id for Anidb : 9025 fix needed
 Missing Anilist id for Anidb : 9145 fix needed
 Missing Anilist id for Anidb : 9180 fix needed
+Missing Anilist id for Anidb : 9348 fix needed
 Missing Anilist id for Anidb : 9575 fix needed
 Missing Anilist id for Anidb : 9871 fix needed
 Missing Anilist id for Anidb : 10053 fix needed
 Missing Anilist id for Anidb : 11263 fix needed
+Missing Anilist id for Anidb : 14421 fix needed
 Missing Anilist id for Anidb : 14706 fix needed
 Missing Anilist id for Anidb : 15460 fix needed
 Missing Anilist id for Anidb : 15460 fix needed
+Missing Anilist id for Anidb : 15728 fix needed
 Missing Anilist id for Anidb : 16111 fix needed
 Missing Anilist id for Anidb : 16708 fix needed
 Missing Anilist id for Anidb : 17664 fix needed
