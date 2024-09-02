@@ -608,36 +608,36 @@
     "anilist_id": "205"
   },
   {
-    "tvdb_id": "443124  2 0 18805 59497 171115  Rising Impact Season 2",
-    "tvdb_season": "",
-    "tvdb_epoffset": "",
-    "anidb_id": "",
-    "mal_id": "",
-    "anilist_id": ""
+    "tvdb_id": "443124",
+    "tvdb_season": "2",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18805",
+    "mal_id": "59497",
+    "anilist_id": "171115"
   },
   {
-    "tvdb_id": "117801  3 0 18179 56538 168872  Kimi ni Todoke: From Me to You Season 3",
-    "tvdb_season": "",
-    "tvdb_epoffset": "",
-    "anidb_id": "",
-    "mal_id": "",
-    "anilist_id": ""
+    "tvdb_id": "117801",
+    "tvdb_season": "3",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18179",
+    "mal_id": "56538",
+    "anilist_id": "168872"
   },
   {
-    "tvdb_id": "78914 2 0 2710  73  73  Full Metal Panic! Season 2",
-    "tvdb_season": "",
-    "tvdb_epoffset": "",
-    "anidb_id": "",
-    "mal_id": "",
-    "anilist_id": ""
+    "tvdb_id": "78914",
+    "tvdb_season": "2",
+    "tvdb_epoffset": "0",
+    "anidb_id": "2710",
+    "mal_id": "73",
+    "anilist_id": "73"
   },
   {
-    "tvdb_id": "303730  2 0 11831 32301 21534 Active Raid Season 2    ",
-    "tvdb_season": "",
-    "tvdb_epoffset": "",
-    "anidb_id": "",
-    "mal_id": "",
-    "anilist_id": ""
+    "tvdb_id": "303730",
+    "tvdb_season": "2",
+    "tvdb_epoffset": "0",
+    "anidb_id": "11831",
+    "mal_id": "32301",
+    "anilist_id": "21534"
   },
   {
     "tvdb_id": "72025",
@@ -13614,14 +13614,6 @@
     "anidb_id": "2707",
     "mal_id": "3761",
     "anilist_id": "3761"
-  },
-  {
-    "tvdb_id": "78914",
-    "tvdb_season": "3",
-    "tvdb_epoffset": "0",
-    "anidb_id": "2710",
-    "mal_id": "73",
-    "anilist_id": "73"
   },
   {
     "tvdb_id": "120041",
@@ -37734,14 +37726,6 @@
     "anidb_id": "11828",
     "mal_id": "32282",
     "anilist_id": "21518"
-  },
-  {
-    "tvdb_id": "303730",
-    "tvdb_season": "1",
-    "tvdb_epoffset": "12",
-    "anidb_id": "11831",
-    "mal_id": "32301",
-    "anilist_id": "21534"
   },
   {
     "tvdb_id": "311832",
