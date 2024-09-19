@@ -657,6 +657,14 @@
   },
   {
     "tvdb_id": "440451",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18227",
+    "mal_id": "56840",
+    "anilist_id": "169930"
+  },
+  {
+    "tvdb_id": "440451",
     "tvdb_season": "2",
     "tvdb_epoffset": "0",
     "anidb_id": "18227",
