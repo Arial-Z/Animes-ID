@@ -163,7 +163,6 @@ Missing MAL id for Anidb : 11041 fix needed
 Missing MAL id for Anidb : 11265 fix needed
 Missing MAL id for Anidb : 11268 fix needed
 Missing MAL id for Anidb : 11615 fix needed
-Missing MAL id for Anidb : 11664 fix needed
 Missing MAL id for Anidb : 11758 fix needed
 Missing MAL id for Anidb : 11917 fix needed
 Missing MAL id for Anidb : 12107 fix needed
