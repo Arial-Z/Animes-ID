@@ -41,7 +41,6 @@ Missing MAL id for Anidb : 6470 fix needed
 Missing MAL id for Anidb : 6619 fix needed
 Missing MAL id for Anidb : 6779 fix needed
 Missing MAL id for Anidb : 6791 fix needed
-Missing MAL id for Anidb : 6821 fix needed
 Missing MAL id for Anidb : 6858 fix needed
 Missing MAL id for Anidb : 6860 fix needed
 Missing MAL id for Anidb : 6861 fix needed
