@@ -52456,6 +52456,14 @@
     "anilist_id": "153629"
   },
   {
+    "tvdb_id": "278157",
+    "tvdb_season": "0",
+    "tvdb_epoffset": "13",
+    "anidb_id": "17570",
+    "mal_id": "52742",
+    "anilist_id": "153658"
+  },
+  {
     "tvdb_id": "262090",
     "tvdb_season": "0",
     "tvdb_epoffset": "19",
@@ -52470,6 +52478,14 @@
     "anidb_id": "17575",
     "mal_id": "52816",
     "anilist_id": "153818"
+  },
+  {
+    "tvdb_id": "293088",
+    "tvdb_season": "3",
+    "tvdb_epoffset": "0",
+    "anidb_id": "17576",
+    "mal_id": "52807",
+    "anilist_id": "153800"
   },
   {
     "tvdb_id": "418001",
