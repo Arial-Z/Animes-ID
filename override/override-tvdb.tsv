@@ -99,7 +99,7 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 435630	1	0	18464	55732	141883	Blader Soul
 443905	1	0	15910	56835	126830	Code Geass: Rozé of the Recapture
 449267	1	0	18593	58717	177106	Garouden: The Way of the Lone Wolf
-420279	1	0	17422		150103	Rick and Morty: The Anime
+420279	1	0	17422	56057	150103	Rick and Morty: The Anime #PENDING APPROVAL ON MAL THIS IS TO REMOVE THE MISSING MAL ID WARNING
 442363	1	0	18806	57192	152184	True Beauty
 442145	1	0	18275	59390	177814	Terminator Zero
 452993	1	0	18857	59505	180923	Lockdown Zone
@@ -109,3 +109,4 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 259675	4	0	17141	50855	144779	Star Blazers 2199
 438151	1	0	18156	18156	168194	Sengoku Youko S1
 438151	2	0	18543	58488	176660	Sengoku Youko S2
+376126	2	0	18964	59499		Future Folktales S2 #CURRENTLY NO ANILIST ID AS ANILIST HAS A SUBMISSION BACKLOG STILL
