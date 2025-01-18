@@ -55686,5 +55686,21 @@
     "anidb_id": "19050",
     "mal_id": "54144",
     "anilist_id": "182920"
+  },
+  {
+    "tvdb_id": "402033",
+    "tvdb_season": "3",
+    "tvdb_epoffset": "0",
+    "anidb_id": "19078",
+    "mal_id": "",
+    "anilist_id": ""
+  },
+  {
+    "tvdb_id": "271591",
+    "tvdb_season": "14",
+    "tvdb_epoffset": "0",
+    "anidb_id": "19086",
+    "mal_id": "",
+    "anilist_id": ""
   }
 ]
