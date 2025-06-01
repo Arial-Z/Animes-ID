@@ -47,7 +47,7 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 70668	2	0	102	232	232	Cardcaptor Sakura S2
 70668	3	0	102	232	232	Cardcaptor Sakura S3
 70668	4	0	12140	33354	97881	Cardcaptor Sakura S4
-425148	1	0		52976	155011	Berserk: The Golden Age Arc – Memorial Edition S1
+425148	1	0	7991	52976	155011	Berserk: The Golden Age Arc – Memorial Edition S1
 394346	1	0	15899	44248	127149	Fate/Grand Carnival
 395150	1	0	195	401	401	Rurouni Kenshin: Reflection
 406554	1	0	73	44	44	Samurai X: Trust & Betrayal - Rurouni Kenshin: Trust & Betrayal
@@ -117,3 +117,12 @@ tvdb_id	tvdb_season	tvdb_epoffset	anidb_id	mal_id	anilist_id	notes
 438049	1	0	17694	53447	156092	To be Hero X
 445261	2	0	19205	61092	184470	Himitsu no AiPri Season 02
 449395	1	0	19234	60057	166442	Super Cube
+457833	1	0	596	2302	2302	Kidou Senshi SD Gundam MK-I (Season 01)
+457833	2	0	1037	2303	2303	Kidou Senshi SD Gundam Mk-II (Season 02)
+457833	3	0	4722	2306	2306	Mobile Suit SD Gundam's Counterattack (Season 03)
+457833	4	0	3060	2305	2305	Kidou Senshi SD Gundam Mk-III (Season 04)
+457833	5	0	3343	1939	1939	SD Gundam Gaiden (Season 05)
+457833	6	0	1101	2304	2304	Kidou Senshi SD Gundam Mk-IV (Season 06)
+457833	7	0	3341	6792	6792	Kidou Senshi SD Gundam Mk-V (Season 07)
+457833	8	0	3344	9087	9087	Kidou Senshi SD Gundam: Musha Kishi Commando - SD Gundam Kinkyuu Shutsugeki (Season 08)
+457833	9	0	3342	9098	9098	Kidou Senshi SD Gundam Matsuri (Season 09)
