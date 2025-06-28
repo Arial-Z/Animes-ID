@@ -47,3 +47,4 @@ Anidb : 17203 missing from manami-project fix needed
 Anidb : 17281 missing from manami-project fix needed
 Anidb : 17566 missing from manami-project fix needed
 Anidb : 18303 missing from manami-project fix needed
+Anidb : 19357 missing from manami-project fix needed
