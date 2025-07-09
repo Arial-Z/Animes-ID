@@ -55792,6 +55792,14 @@
     "anilist_id": "178533"
   },
   {
+    "tvdb_id": "451504",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18702",
+    "mal_id": "59130",
+    "anilist_id": "178433"
+  },
+  {
     "tvdb_id": "434704",
     "tvdb_season": "2",
     "tvdb_epoffset": "0",
@@ -55976,6 +55984,14 @@
     "anilist_id": "179828"
   },
   {
+    "tvdb_id": "452712",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18781",
+    "mal_id": "59421",
+    "anilist_id": "179879"
+  },
+  {
     "tvdb_id": "452713",
     "tvdb_season": "1",
     "tvdb_epoffset": "0",
@@ -56072,6 +56088,14 @@
     "anilist_id": "180292"
   },
   {
+    "tvdb_id": "453585",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18824",
+    "mal_id": "59619",
+    "anilist_id": "180425"
+  },
+  {
     "tvdb_id": "453673",
     "tvdb_season": "1",
     "tvdb_epoffset": "0",
@@ -56110,6 +56134,14 @@
     "anidb_id": "18856",
     "mal_id": "59745",
     "anilist_id": "180829"
+  },
+  {
+    "tvdb_id": "454330",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18859",
+    "mal_id": "59791",
+    "anilist_id": "180929"
   },
   {
     "tvdb_id": "427299",
@@ -56296,6 +56328,14 @@
     "anilist_id": "184279"
   },
   {
+    "tvdb_id": "456835",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "19001",
+    "mal_id": "60326",
+    "anilist_id": "184591"
+  },
+  {
     "tvdb_id": "456902",
     "tvdb_season": "1",
     "tvdb_epoffset": "0",
@@ -56344,6 +56384,14 @@
     "anilist_id": "185407"
   },
   {
+    "tvdb_id": "457765",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "19045",
+    "mal_id": "60508",
+    "anilist_id": "185519"
+  },
+  {
     "tvdb_id": "457737",
     "tvdb_season": "1",
     "tvdb_epoffset": "0",
@@ -56358,6 +56406,14 @@
     "anidb_id": "19050",
     "mal_id": "54144",
     "anilist_id": "182920"
+  },
+  {
+    "tvdb_id": "457843",
+    "tvdb_season": "1",
+    "tvdb_epoffset": "0",
+    "anidb_id": "19054",
+    "mal_id": "60523",
+    "anilist_id": "185544"
   },
   {
     "tvdb_id": "457929",
