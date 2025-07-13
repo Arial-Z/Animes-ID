@@ -172,7 +172,7 @@ wait_time=0
 while [ $wait_time -lt 4 ];
 do
 	printf "%s - Downloading manami-project mapping\n" "$(date +%H:%M:%S)"
-	curl -s "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database.json" > "$SCRIPT_FOLDER/tmp/anime-offline-database.json"
+	curl -L -s "https://github.com/manami-project/anime-offline-database/releases/download/latest/anime-offline-database.json" > "$SCRIPT_FOLDER/tmp/anime-offline-database.json"
 	size=$(du -b "$SCRIPT_FOLDER/tmp/anime-offline-database.json" | awk '{ print $1 }')
 	((wait_time++))
 	if [[ $size -gt 1000 ]]
