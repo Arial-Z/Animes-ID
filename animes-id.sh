@@ -125,7 +125,7 @@ function get-mal-anilist-id () {
 						break
 					elif [[ $rate_limit -lt 3 ]]
 					then
-						printf "%s\t - Anilist API limit reached watiting 30s" "$(date +%H:%M:%S)"
+						printf "%s\t - Anilist API limit reached watiting 30s\n" "$(date +%H:%M:%S)"
 						sleep 30
 						break
 					elif [[ $wait_time == 4 ]]
