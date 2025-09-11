@@ -244,7 +244,7 @@ tail -n +2 "$SCRIPT_FOLDER/cr-award/cr-award.tsv" > "$SCRIPT_FOLDER/tmp/cr-award
 	"imdb_id": .[2],
 	"anilist_id": .[3],
 	"year": .[4],
-	"cr_award": .[5]})' > "cr-award.json"
+	"cr_award": .[5]})' > "$SCRIPT_FOLDER/cr-award/cr-award.json"
 printf "%s - Done\n" "$(date +%H:%M:%S)"
 
 printf "%s - Run finished\n" "$(date +%H:%M:%S)" 
