@@ -21,9 +21,6 @@ jobs:
       - name: Update Animes-ID
         run: bash animes-id.sh
 
-      - name: Update Anime Awards
-        run: bash cr-award/json.sh
-
       - name: Check Diff
         id: verify_diff
         run: |
