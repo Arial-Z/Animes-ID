@@ -1,4 +1,37 @@
 tvdb_id	tvdb_season	imdb_id	anilist_id	year	Award	notes
+389597	1	tv	151807	2025	Anime of the Year	Solo Leveling
+movie	movie	tt31711040	174788	2025	Film of the Year	Look Back
+267440	4	tv	162314	2025	Global Impact Award	Attack on Titan (S4 Final)
+348545	5	tv	166240	2025	Best Continuing Series	Kimetsu no Yaiba (S5)
+389597	1	tv	151807	2025	Best New Series	Solo Leveling
+420280	1	tv	151639	2025	Best Original Anime	Ninja Kamui
+348545	5	tv	166240	2025	Best Animation	Kimetsu no Yaiba (S5)
+432832	1	tv	171018	2025	Best Character Design	DAN DA DAN
+424536	1	tv	154587	2025	Best Director	Frieren
+424536	1	tv	154587	2025	Best Background Art	Frieren
+429934	1	tv	170942	2025	Best Romance	Blue Box
+421737	2	tv	166610	2025	Best Comedy	MASHLE (S2)
+389597	1	tv	151807	2025	Best Action	Solo Leveling
+305089	3	tv	163134	2025	Best Isekai	Re:ZERO (S3)
+424536	1	tv	154587	2025	Best Drama	Frieren
+443377	1	tv	171457	2025	Best Slice of Life	Makeine
+389597	1	tv	151807	2025	Best Main Character	Solo Leveling
+424536	1	tv	154587	2025	Best Supporting Character	Frieren
+405920	2	tv	158927	2025	Must Protect At All Costs Character	SPY x FAMILY (S2)
+432832	1	tv	171018	2025	Best Song	DAN DA DAN
+389597	1	tv	151807	2025	Best Score	Solo Leveling
+432832	1	tv	171018	2025	Best Opening	DAN DA DAN
+389597	1	tv	151807	2025	Best Ending	Solo Leveling
+431162	1	tv	161645	2025	Best VA Performance (Japanese)	The Apothecary Diaries
+405920	2	tv	158927	2025	Best VA Performance (Arabic)	SPY x FAMILY (S2)
+389597	1	tv	151807	2025	Best VA Performance (Brazilian)	Solo Leveling
+389597	1	tv	151807	2025	Best VA Performance (Castilian)	Solo Leveling
+389597	1	tv	151807	2025	Best VA Performance (English)	Solo Leveling
+423075	1	tv	153288	2025	Best VA Performance (French)	Kaiju No. 8
+81797	1	tv	21	2025	Best VA Performance (German)	One Piece
+377543	2	tv	145064	2025	Best VA Performance (Hindi)	Jujutsu Kaisen (S2)
+movie	movie	tt31711040	174788	2025	Best VA Performance (Italian)	Look Back
+267440	4	tv	162314	2025	Best VA Performance Spanish)	Attack on Titan (S4 Final)
 377543	2	tv	145064	2024	Anime of the Year	Jujutsu Kaisen (S2)
 426294	1	tv	155907	2024	Best Original Anime	Buddy Daddies (S1)
 377543	2	tv	145064	2024	Best Character Design	Jujutsu Kaisen (S2)
@@ -8,7 +41,7 @@ tvdb_id	tvdb_season	imdb_id	anilist_id	year	Award	notes
 377543	2	tv	145064	2024	Best Opening	Jujutsu Kaisen (S2)
 377543	2	tv	145064	2024	Best Ending	Jujutsu Kaisen (S2)
 267440	4	tv	146984	2024	Best Score	Attack on Titan (S4 P3)
-movie	movie	tt16428256	142770	2024	Best Film	Suzume
+movie	movie	tt16428256	142770	2024	Film of the Year	Suzume
 377543	2	tv	145064	2024	Best Director	Jujutsu Kaisen (S2)
 377543	2	tv	145064	2024	Best Cinematography	Jujutsu Kaisen (S2)
 348545	4	tv	145139	2024	Best Art Direction	Kimetsu no Yaiba (S4)
@@ -40,7 +73,7 @@ movie	movie	tt16428256	142770	2024	Best Film	Suzume
 267440	4	tv	131681	2023	Best Opening	Attack on Titan (S4 P2)
 405920	1	tv	140960	2023	Best Ending	SPY x FAMILY (S1 P1)
 267440	4	tv	131681	2023	Best Score	Attack on Titan (S4 P2)
-movie	movie	tt14331144	131573	2023	Best Film	Jujutsu Kaisen 0
+movie	movie	tt14331144	131573	2023	Film of the Year	Jujutsu Kaisen 0
 348545	3	tv	142329	2023	Best Director	Kimetsu no Yaiba (S3)
 405920	1	tv	140960	2023	Best Main Character	Attack on Titan (S4 P2)
 405920	1	tv	140960	2023	Best Supporting Character	SPY x FAMILY (S1 P1)
@@ -85,7 +118,7 @@ movie	movie	tt14331144	131573	2023	Best VA Performance (German)	Jujutsu Kaisen 0
 402412	1	tv	133965	2022	Best Comedy	Komi Can't Communicate (S1 P1)
 388593	1	tv	124080	2022	Best Romance	Horimiya (S1)
 348545	2	tv	112151	2022	Best Score	Kimetsu no Yaiba (S2)
-movie	movie	tt11032374	112151	2022	Best Film	Kimetsu no Yaiba - The Movie : Mugen Train
+movie	movie	tt11032374	112151	2022	Film of the Year	Kimetsu no Yaiba - The Movie : Mugen Train
 352408	2	tv	108511	2022	Best Fantasy	That Time I Got Reincarnated as a Slime (S2 P1)
 352408	2	tv	116742	2022	Best Fantasy	That Time I Got Reincarnated as a Slime (S2 P2)
 377543	1	tv	113415	2021	Anime of the Year	Jujutsu Kaisen (S1)
@@ -137,7 +170,7 @@ movie	movie	tt11032374	112151	2022	Best Film	Kimetsu no Yaiba - The Movie : Muge
 330139	1	tv	21827	2019	Best Animation	Violet Evergarden (S1)
 262954	4	tv	102883	2019	Best Character Design	JoJo’s Bizzare Adventure (S4)
 318893	3	tv	100166	2019	Best Fight Scene	My Hero Academia (S3)
-movie	movie	tt7745068	100723	2019	Best Film	My Hero Academia: Two Heroes
+movie	movie	tt7745068	100723	2019	Film of the Year	My Hero Academia: Two Heroes
 295068	5	tv	21175	2019	Best Continuing Series	Dragon Ball Super (S5)
 326109	1	tv	97986	2018	Anime of the Year	Made in Abyss (S1)
 305074	2	tv	21856	2018	Best Hero	My Hero Academia (S2)
@@ -151,7 +184,7 @@ movie	movie	tt7745068	100723	2019	Best Film	My Hero Academia: Two Heroes
 318893	1	tv	21776	2018	Best Comedy	Miss Kobayashi’s Dragon Maid (S1)
 326109	1	tv	97986	2018	Best Score	Made in Abyss (S1)
 305074	2	tv	21856	2018	Best Action	My Hero Academia (S2)
-movie	movie	tt5311514	21519	2018	Best Film	Your Name
+movie	movie	tt5311514	21519	2018	Film of the Year	Your Name
 306269	2	tv	98478	2018	Best Continuing Series	March Comes in Like a Lion (S2)
 331787	1	tv	98707	2018	Best CGI	Land of the Lustrous (S1)
 332983	1	tv	99420	2018	Best Slice of Life	Girls’ Last Tour (S1)
