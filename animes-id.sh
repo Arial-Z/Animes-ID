@@ -235,4 +235,16 @@ printf "%s - Exporting animes lists\n" "$(date +%H:%M:%S)"
 	"anilist_id": .[3]})' > "$SCRIPT_FOLDER/list-movies-id.json"
 
 printf "%s - Done\n" "$(date +%H:%M:%S)"
+
+printf "%s - Creating Anime Awards json\n" "$(date +%H:%M:%S)"
+tail -n +2 "$SCRIPT_FOLDER/cr-award/cr-award.tsv" > "$SCRIPT_FOLDER/tmp/cr-award.tsv"
+< "$SCRIPT_FOLDER/tmp/cr-award.tsv" jq -s  --slurp --raw-input --raw-output 'split("\n") | .[0:-1] | map(split("\t")) |
+	map({"tvdb_id": .[0],
+	"tvdb_season": .[1],
+	"imdb_id": .[2],
+	"anilist_id": .[3],
+	"year": .[4],
+	"cr_award": .[5]})' > "cr-award.json"
+printf "%s - Done\n" "$(date +%H:%M:%S)"
+
 printf "%s - Run finished\n" "$(date +%H:%M:%S)" 
