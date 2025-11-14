@@ -9960,6 +9960,12 @@
     "anilist_id": "135864"
   },
   {
+    "imdb_id": "tt22474136",
+    "anidb_id": "16509",
+    "mal_id": "49523",
+    "anilist_id": "137310"
+  },
+  {
     "imdb_id": "tt15313532",
     "anidb_id": "16560",
     "mal_id": "49722",
@@ -10180,5 +10186,17 @@
     "anidb_id": "18359",
     "mal_id": "57647",
     "anilist_id": "172420"
+  },
+  {
+    "imdb_id": "tt34812090",
+    "anidb_id": "19020",
+    "mal_id": "60408",
+    "anilist_id": "185084"
+  },
+  {
+    "imdb_id": "tt36757407",
+    "anidb_id": "19338",
+    "mal_id": "61616",
+    "anilist_id": "191884"
   }
 ]
