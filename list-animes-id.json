@@ -52482,7 +52482,7 @@
   {
     "tvdb_id": "354198",
     "tvdb_season": "0",
-    "tvdb_epoffset": "4",
+    "tvdb_epoffset": "8",
     "anidb_id": "17477",
     "mal_id": "52198",
     "anilist_id": "151384"
@@ -55894,6 +55894,14 @@
     "anidb_id": "18602",
     "mal_id": "58749",
     "anilist_id": "177175"
+  },
+  {
+    "tvdb_id": "355966",
+    "tvdb_season": "0",
+    "tvdb_epoffset": "0",
+    "anidb_id": "18603",
+    "mal_id": "58755",
+    "anilist_id": "177191"
   },
   {
     "tvdb_id": "339922",
