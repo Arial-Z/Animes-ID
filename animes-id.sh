@@ -172,13 +172,12 @@ wait_time=0
 while [ $wait_time -lt 4 ];
 do
 	printf "%s - Downloading manami-project mapping\n" "$(date +%H:%M:%S)"
-	curl -L -s "https://github.com/manami-project/anime-offline-database/releases/download/latest/anime-offline-database.jsonl" > "$SCRIPT_FOLDER/tmp/anime-offline-database.jsonl"
-	size=$(du -b "$SCRIPT_FOLDER/tmp/anime-offline-database.jsonl" | awk '{ print $1 }')
+	curl -L -s "https://github.com/manami-project/anime-offline-database/releases/download/latest/anime-offline-database-minified.json " > "$SCRIPT_FOLDER/tmp/anime-offline-database.json"
+	size=$(du -b "$SCRIPT_FOLDER/tmp/anime-offline-database.json" | awk '{ print $1 }')
 	((wait_time++))
 	if [[ $size -gt 1000 ]]
 	then
 		printf "%s - Done\n\n" "$(date +%H:%M:%S)"
-  jq -s '.' "$SCRIPT_FOLDER/tmp/anime-offline-database.jsonl" > "$SCRIPT_FOLDER/tmp/anime-offline-database.json"
 		break
 	fi
 	if [[ $wait_time == 4 ]]
