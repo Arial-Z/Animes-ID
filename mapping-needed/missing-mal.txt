@@ -213,5 +213,4 @@ Missing MAL id for Anidb : 17175 fix needed
 Missing MAL id for Anidb : 17559 fix needed
 Missing MAL id for Anidb : 18165 fix needed
 Missing MAL id for Anidb : 18283 fix needed
-Missing MAL id for Anidb : 19373 fix needed
 Missing MAL id for Anidb : 19449 fix needed
