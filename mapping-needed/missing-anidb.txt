@@ -64,3 +64,4 @@ Anidb : 20060 missing from manami-project fix needed
 Anidb : 20063 missing from manami-project fix needed
 Anidb : 20074 missing from manami-project fix needed
 Anidb : 20084 missing from manami-project fix needed
+Anidb : 20136 missing from manami-project fix needed
