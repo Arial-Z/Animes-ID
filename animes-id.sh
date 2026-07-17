@@ -99,7 +99,12 @@ function get-mal-anilist-id () {
 			malid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$malid" ]]
 			then
-				printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
+                malid=$(jq --arg anidbid "$anidbid" '.animes.[$anidbid].resources.MAL.[]?' -r "$SCRIPT_FOLDER/tmp/AnimeToExternal.json")
+                echo "ANIDIB : $anidbid - MALID : $malid"
+                if [[ -z "$malid" ]]
+                then
+                    printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
+                fi
 			fi
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
@@ -188,6 +193,27 @@ do
 	sleep 30
 done
 
+wait_time=0
+while [ $wait_time -lt 4 ];
+do
+	printf "%s - Downloading AnimeAggregations mapping\n" "$(date +%H:%M:%S)"
+	curl -L -s "https://raw.githubusercontent.com/notseteve/AnimeAggregations/refs/heads/main/aggregate/AnimeToExternal.json" > "$SCRIPT_FOLDER/tmp/AnimeToExternal.json"
+	size=$(du -b "$SCRIPT_FOLDER/tmp/AnimeToExternal.json" | awk '{ print $1 }')
+	((wait_time++))
+	if [[ $size -gt 1000 ]]
+	then
+		printf "%s - Done\n\n" "$(date +%H:%M:%S)"
+		break
+	fi
+	if [[ $wait_time == 4 ]]
+	then
+		printf "%s - Error can't download anime ID mapping file, exiting\n" "$(date +%H:%M:%S)"
+		exit 1
+	fi
+	sleep 30
+done
+
+
 tail -n +2 "$SCRIPT_FOLDER/override/override-animes-id.tsv" > "$SCRIPT_FOLDER/tmp/override-animes-id.tsv"
 :> "$SCRIPT_FOLDER/tmp/list-animes.tsv"
 while IFS= read -r line
@@ -247,4 +273,4 @@ tail -n +2 "$SCRIPT_FOLDER/cr-award/cr-award.tsv" > "$SCRIPT_FOLDER/tmp/cr-award
 	"cr_award": .[5]})' > "$SCRIPT_FOLDER/cr-award/cr-award.json"
 printf "%s - Done\n" "$(date +%H:%M:%S)"
 
-printf "%s - Run finished\n" "$(date +%H:%M:%S)" 
+printf "%s - Run finished\n" "$(date +%H:%M:%S)"
