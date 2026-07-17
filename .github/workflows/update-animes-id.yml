@@ -16,7 +16,7 @@ jobs:
         run: echo "date=$(date +%Y.%m.%d" - "%H:%M)" >> $GITHUB_OUTPUT
 
       - name: Check Out Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Update Animes-ID
         run: bash animes-id.sh
