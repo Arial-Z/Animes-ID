@@ -100,8 +100,9 @@ function get-mal-anilist-id () {
 			if [[ -z "$malid" ]]
 			then
                 malid=$(jq --arg anidbid "$anidbid" '.animes.[$anidbid].resources.MAL.[]?' -r "$SCRIPT_FOLDER/tmp/AnimeToExternal.json")
-                if [[ -z "$malid" ]]
+                if [[ -z "$malid" ]] || [[ "$malid" == 'null' ]]
                 then
+					malid=""
                     printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
                 fi
 			fi
