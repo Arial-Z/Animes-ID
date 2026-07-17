@@ -12,7 +12,7 @@ if [ ! -d "$SCRIPT_FOLDER/mapping-needed" ]
 then
 	mkdir "$SCRIPT_FOLDER/mapping-needed"
 else
-    rm "$SCRIPT_FOLDER/mapping-needed"/*
+	rm "$SCRIPT_FOLDER/mapping-needed"/*
 fi
 
 function read-dom () {
@@ -63,26 +63,26 @@ function id-from-imdb () {
 	fi
 }
 function missing-multiples-movies () {
-    if  echo "$imdbid" | grep -q ,
-    then
-        columns_total_mumbers=$(echo "$imdbid" | awk -F"," '{print NF}')
-        columns_mumbers=1
-        missing_movies=""
-        while [ $columns_mumbers -le "$columns_total_mumbers" ];
-        do
-            current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
-            if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/override/override-imdb.tsv" | grep -q -w "$current_movie"
-            then
-                missing_movies=$(printf "%s," "$missing_movies$current_movie" )
-            fi
-        ((columns_mumbers++))
-        done
-        if [[ -n "$missing_movies" ]]
-        then
-            printf "Anidb : %s missing multiples movies %s\n" "$anidbid" "$missing_movies" >> "$SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt"
-        fi
-        imdbid=$(echo "$imdbid" | awk -F"," '{print $1}')
-    fi
+	if  echo "$imdbid" | grep -q ,
+	then
+		columns_total_mumbers=$(echo "$imdbid" | awk -F"," '{print NF}')
+		columns_mumbers=1
+		missing_movies=""
+		while [ $columns_mumbers -le "$columns_total_mumbers" ];
+		do
+			current_movie=$(echo "$imdbid" | awk -v columns_mumbers=$columns_mumbers -F"," '{print $columns_mumbers}')
+			if ! awk -F"\t" '{print $1}' "$SCRIPT_FOLDER/override/override-imdb.tsv" | grep -q -w "$current_movie"
+			then
+				missing_movies=$(printf "%s," "$missing_movies$current_movie" )
+			fi
+		((columns_mumbers++))
+		done
+		if [[ -n "$missing_movies" ]]
+		then
+			printf "Anidb : %s missing multiples movies %s\n" "$anidbid" "$missing_movies" >> "$SCRIPT_FOLDER/mapping-needed/missing-multiples-movies.txt"
+		fi
+		imdbid=$(echo "$imdbid" | awk -F"," '{print $1}')
+	fi
 }
 function get-mal-anilist-id () {
 	malid=""
@@ -99,12 +99,12 @@ function get-mal-anilist-id () {
 			malid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/myanimelist.net\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$malid" ]]
 			then
-                malid=$(jq --arg anidbid "$anidbid" '.animes.[$anidbid].resources.MAL.[]?' -r "$SCRIPT_FOLDER/tmp/AnimeToExternal.json")
-                if [[ -z "$malid" ]] || [[ "$malid" == 'null' ]]
-                then
+				malid=$(jq --arg anidbid "$anidbid" 'first(.animes.[$anidbid].resources.MAL.[]?)' -r "$SCRIPT_FOLDER/tmp/AnimeToExternal.json")
+				if [[ -z "$malid" ]] || [[ "$malid" == 'null' ]]
+				then
 					malid=""
-                    printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
-                fi
+					printf "Missing MAL id for Anidb : %s fix needed\n" "$anidbid" >> "$SCRIPT_FOLDER/mapping-needed/missing-mal.txt"
+				fi
 			fi
 			anilistid=$(awk -v line="$line" -F"\t" 'NR==line' "$SCRIPT_FOLDER/tmp/anime-offline-database.tsv" | grep -oP "(?<=https:\/\/anilist.co\/anime\/)(\d+)" | head -n 1)
 			if [[ -z "$anilistid" ]] && [[ -n "$malid" ]]
