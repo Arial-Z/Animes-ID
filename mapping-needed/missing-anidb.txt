@@ -50,9 +50,7 @@ Anidb : 18239 missing from manami-project fix needed
 Anidb : 18303 missing from manami-project fix needed
 Anidb : 19330 missing from manami-project fix needed
 Anidb : 19846 missing from manami-project fix needed
+Anidb : 19858 missing from manami-project fix needed
 Anidb : 19859 missing from manami-project fix needed
 Anidb : 19901 missing from manami-project fix needed
 Anidb : 20009 missing from manami-project fix needed
-Anidb : 20180 missing from manami-project fix needed
-Anidb : 20203 missing from manami-project fix needed
-Anidb : 20240 missing from manami-project fix needed
